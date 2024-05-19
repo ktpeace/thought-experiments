@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" className="min-h-screen">
       <body className={inter.className}>
         <header>
-          <nav className="fixed top-0 w-full z-50 py-3 px-6 bg-[#0d1012]">
+          <nav className="fixed top-0 w-full z-50 py-3 px-6 bg-[#0d1012] border border-[#1b1b1b]">
             <Link href="/" className="opacity-20 flex items-center gap-2">
               <Image
                 width="75"
