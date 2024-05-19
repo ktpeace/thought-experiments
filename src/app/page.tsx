@@ -3,7 +3,7 @@ import HomeImages from "@/components/HomeImages";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 text-neutral-300">
+    <main className="flex min-h-screen flex-col items-center justify-between py-24 px-12 md:px-24 text-neutral-300">
       <section className="md:max-w-70p lg:max-w-60p mb-12 flex flex-col gap-4">
         <h2 className="text-2xl text-neutral-200">
           Welcome to{" "}
