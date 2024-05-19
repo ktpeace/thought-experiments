@@ -29,7 +29,7 @@ const SlidingImages = () => {
   const imagesExtension = ".png";
 
   return (
-    <div className="fixed w-screen bottom-0 left-0 right-0 flex justify-between px-12 pb-8 bg-black">
+    <div className="fixed w-screen bottom-0 left-0 right-0 flex justify-between px-12 pt-4 pb-4 md:pb-8 bg-black">
       <button onClick={scrollLeft} className="p-2 text-white hover:opacity-50">
         <svg
           xmlns="http://www.w3.org/2000/svg"
