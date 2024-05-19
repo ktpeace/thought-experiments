@@ -1,5 +1,5 @@
 "use client";
-import experimentData, { Experiment } from "@/components/experimentData";
+import experimentData, { ExperimentData } from "@/components/experimentData";
 import { usePathname } from "next/navigation";
 
 const Experiment = () => {
@@ -10,7 +10,7 @@ const Experiment = () => {
     return <p>Experiment not found</p>;
   }
 
-  const experiment: Experiment = experimentData[id];
+  const experiment: ExperimentData = experimentData[id];
 
   return (
     <div className="md:max-w-70p lg:max-w-50p text-neutral-200">

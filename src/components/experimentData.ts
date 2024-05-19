@@ -1,10 +1,10 @@
-export interface Experiment {
+export interface ExperimentData {
   title: string;
   description: string[];
   question: string;
 }
 
-const experimentData: Record<string, Experiment> = {
+const experimentData: Record<string, ExperimentData> = {
   "trolley-problem": {
     title: "The Trolley Problem",
     description: [
