@@ -4,7 +4,7 @@ import HomeImages from "@/components/HomeImages";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 text-neutral-300">
-      <section className="md:max-w-70p lg:max-w-60p flex flex-col gap-4">
+      <section className="md:max-w-70p lg:max-w-60p mb-12 flex flex-col gap-4">
         <h2 className="text-2xl text-neutral-200">
           Welcome to{" "}
           <span className="font-bold">Thought Experiment Explorer!</span>
@@ -12,8 +12,8 @@ export default function Home() {
         <p>
           Thought experiments are hypothetical situations that isolate moral
           dilemmas or concepts for contemplation and exploration. You can
-          explore some of the most famous ones below. Some of these are as old
-          as ancient Greece!
+          explore and <span className="font-semibold">vote</span> on some of the
+          most famous ones below. Some of these are as old as ancient Greece!
         </p>
         <p>
           While exploring thought experiments, it&apos;s important to keep in
