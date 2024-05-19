@@ -20,7 +20,11 @@ const SlidingImages = () => {
 
   const imagesPath = "/images/experiment-icons/";
 
-  const images = ["trolley-problem", "mary-and-color-red", "ship-of-theseus"];
+  const imageNames = [
+    "trolley-problem",
+    "mary-and-color-red",
+    "ship-of-theseus",
+  ];
 
   const imagesExtension = ".png";
 
@@ -47,12 +51,12 @@ const SlidingImages = () => {
         className="flex overflow-x-auto space-x-4"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        {images.map((image, index) => (
-          <Link href={`/experiments/${image}`}>
+        {imageNames.map((imageName, index) => (
+          <Link key={imageName} href={`/experiments/${imageName}`}>
             <div key={index} className="flex-shrink-0 w-14 h-14 relative">
               <div className="w-full h-full relative overflow-hidden rounded-full border-2 border-white hover:opacity-50">
                 <Image
-                  src={`${imagesPath}${image}${imagesExtension}`}
+                  src={`${imagesPath}${imageName}${imagesExtension}`}
                   alt={`Image ${index + 1}`}
                   className="object-cover p-2"
                   fill
