@@ -24,7 +24,7 @@ const HomeImages = () => {
               <Image
                 src={`${imagesPath}${imageName}${imagesExtension}`}
                 alt={`Image ${index + 1}`}
-                className="object-cover p-2"
+                className="object-contain p-4"
                 fill
               />
             </div>
