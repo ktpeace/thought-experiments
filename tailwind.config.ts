@@ -8,6 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "pool-100": "#C5E6E8",
+        "pool-300": "#79C2C9",
+        "pool-400": "#54B0B6",
+        "pool-500": "#3AADB8", // Base Color
+        "pool-600": "#2C9198",
+        "pool-700": "#217378",
+        "pool-800": "#18555A",
+        "pool-900": "#0F373C",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
