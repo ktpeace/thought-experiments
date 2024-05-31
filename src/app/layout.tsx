@@ -19,11 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="min-h-screen">
-      <body className={cormorant.className}>
+      <body className={`${cormorant.className}`}>
         <header>
           <Navbar />
         </header>
-        {children}
+        <main className="flex min-h-screen flex-col items-center justify-between px-12 md:px-24 text-neutral-300">
+          {children}
+        </main>
       </body>
     </html>
   );
