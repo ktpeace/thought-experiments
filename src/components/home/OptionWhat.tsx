@@ -4,6 +4,7 @@ import NextImage from "@/utils/NextImage";
 import Link from "next/link";
 import OptionExtra from "./OptionExtra";
 import ChoiceText from "./ChoiceText";
+import Image from "next/image";
 
 const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
   const [isYes, setIsYes] = useState<boolean | null>(null);
