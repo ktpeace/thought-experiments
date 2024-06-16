@@ -27,7 +27,7 @@ const Welcome: React.FC<WelcomeProps> = ({ setIsWhat, setIsExtra }) => {
     <section className="w-full py-16 min-h-screen flex flex-col justify-between">
       <div className="h-16"></div>
       {/* Welcome text */}
-      <h2 className="mb-24 text-6xl text-neutral-200 flex flex-col self-center">
+      <h2 className="mb-24 text-5xl md:text-6xl text-neutral-200 flex flex-col self-center">
         <span className="text-pool-500">Welcome</span>
         <span>to Thought</span>
         <span>Experiment</span>
@@ -35,7 +35,7 @@ const Welcome: React.FC<WelcomeProps> = ({ setIsWhat, setIsExtra }) => {
       </h2>
       {/* Welcome buttons */}
       {!choiceText && (
-        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-16">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16">
           <button
             className={`w-72 px-4 py-1 rounded-lg bg-pool-500 text-white hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 text-xl font-sans`}
             onClick={() => choiceHandler("what")}
