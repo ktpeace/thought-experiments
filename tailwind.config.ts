@@ -34,6 +34,9 @@ const config: Config = {
         "80p": "80%",
         "90p": "90%",
       },
+      height: {
+        "screen-safe": "calc(100vh - env(safe-area-inset-bottom))",
+      },
     },
   },
   plugins: [],

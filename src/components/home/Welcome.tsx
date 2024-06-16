@@ -24,7 +24,7 @@ const Welcome: React.FC<WelcomeProps> = ({ setIsWhat, setIsExtra }) => {
   }
 
   return (
-    <section className="w-full py-16 min-h-screen flex flex-col justify-between">
+    <section className="w-full py-16 min-h-screen-safe md:min-h-screen flex flex-col justify-between">
       <div className="h-16"></div>
       {/* Welcome text */}
       <h2 className="mb-24 text-5xl md:text-6xl text-neutral-200 flex flex-col self-center">
@@ -35,7 +35,7 @@ const Welcome: React.FC<WelcomeProps> = ({ setIsWhat, setIsExtra }) => {
       </h2>
       {/* Welcome buttons */}
       {!choiceText && (
-        <div className="w-full mb-16 md:mb-0 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16">
           <button
             className={`w-72 px-4 py-1 rounded-lg bg-pool-500 text-white hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 text-xl font-sans`}
             onClick={() => choiceHandler("what")}
@@ -54,11 +54,7 @@ const Welcome: React.FC<WelcomeProps> = ({ setIsWhat, setIsExtra }) => {
         </div>
       )}
       {/* Display of selected choice */}
-      {choiceText && (
-        <div className="w-full mb-16 md:mb-0">
-          <ChoiceText choiceText={choiceText} moreSpace={false} />
-        </div>
-      )}
+      {choiceText && <ChoiceText choiceText={choiceText} moreSpace={false} />}
     </section>
   );
 };
