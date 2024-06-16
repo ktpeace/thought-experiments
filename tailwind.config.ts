@@ -35,7 +35,7 @@ const config: Config = {
         "90p": "90%",
       },
       height: {
-        "screen-safe": "calc(100vh - env(safe-area-inset-bottom))",
+        "screen-safe": "calc(100vh - 14px - env(safe-area-inset-bottom))",
       },
     },
   },
