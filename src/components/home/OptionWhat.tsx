@@ -20,8 +20,11 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
         dilemmas and ask you to make a choice.
       </p>
       <div className="w-full flex justify-center gap-16">
-        <NextImage src="/media/home/trolley.webp" />
-        <NextImage src="/media/home/trolley.webp" />
+        <NextImage
+          src="/media/home/trolley.webp"
+          alt="delicate drawn-style trolley car"
+        />
+        <NextImage src="/media/home/trolley.webp" alt="concerned man" />
       </div>
       <p>
         The choices you make may surprise you, and considering an experiment may
@@ -33,7 +36,7 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
         upbringing, society, and gut feeling...
       </p>
       <p>Well, my dog can do that (and a very fine dog she is).</p>
-      <NextImage src="/media/home/trolley.webp" />
+      <NextImage src="/media/home/trolley.webp" alt="happy dog" />
       <p>
         It’s better to live an examined life and{" "}
         <span>forge paths of light</span> in the dark, don’t you think?
@@ -56,7 +59,7 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
           {/* Display of selected choice for yes/no */}
           <ChoiceText choiceText={isYes ? "Yes." : "No."} />
           {/* Response to yes/no */}
-          {isYes === true && <p>That's the spirit!</p>}
+          {isYes === true && <p>That&apos;s the spirit!</p>}
           {isYes === false && <p>Shucks.</p>}
           {/* Button if extra text already shown */}
           {isExtraPicked && (

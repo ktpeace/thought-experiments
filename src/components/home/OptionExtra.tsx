@@ -12,10 +12,11 @@ const OptionExtra = ({ isWhatPicked }: { isWhatPicked: boolean }) => {
     <div className="w-full mb-8 flex flex-col gap-8">
       {/* Main text */}
       <p>
-        While exploring thought experiments, it's important to keep in mind the{" "}
-        <span className="font-bold">spirit</span> or{" "}
+        While exploring thought experiments, it&apos;s important to keep in mind
+        the <span className="font-bold">spirit</span> or{" "}
         <span className="font-bold">intent</span>. You can usually come up with
-        an alternate action: "I wouldn't do either of these! I'd just..."{" "}
+        an alternate action: "I wouldn&apos;t do either of these! I&apos;d
+        just..."{" "}
       </p>
       <p>But that&apos;s missing the point.</p>
       <p>
