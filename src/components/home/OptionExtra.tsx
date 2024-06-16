@@ -15,8 +15,8 @@ const OptionExtra = ({ isWhatPicked }: { isWhatPicked: boolean }) => {
         While exploring thought experiments, it&apos;s important to keep in mind
         the <span className="font-bold">spirit</span> or{" "}
         <span className="font-bold">intent</span>. You can usually come up with
-        an alternate action: "I wouldn&apos;t do either of these! I&apos;d
-        just..."{" "}
+        an alternate action: &quot;I wouldn&apos;t do either of these! I&apos;d
+        just...&quot;{" "}
       </p>
       <p>But that&apos;s missing the point.</p>
       <p>
