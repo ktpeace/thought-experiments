@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const HomeImages = () => {
-  const imagesPath = "/images/experiment-icons/";
+  const imagesPath = "/media/experiment-icons/";
 
   const imageNames = [
     "trolley-problem",

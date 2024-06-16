@@ -18,7 +18,7 @@ const SlidingImages = () => {
     }
   };
 
-  const imagesPath = "/images/experiment-icons/";
+  const imagesPath = "/media/experiment-icons/";
 
   const imageNames = [
     "trolley-problem",

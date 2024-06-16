@@ -8,7 +8,7 @@ const Navbar = () => {
         <Image
           width="75"
           height="74"
-          src="/images/thought-explorer.png"
+          src="/media/thought-explorer.png"
           alt="icon of brain with compass"
           className="w-8 h-auto"
         />
