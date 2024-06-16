@@ -8,23 +8,20 @@ const ChoiceText = ({
   moreSpace?: boolean;
 }) => {
   const choiceRef = useRef<HTMLDivElement>(null);
+  const OFFSET = 84;
 
   // Scroll to put choiceText at top on render
-  const handleScroll = () => {
+  useEffect(() => {
     if (choiceText && choiceRef.current) {
+      // Account for navbar
       const elementTop = choiceRef.current.getBoundingClientRect().top;
-      const offsetPosition = elementTop + window.scrollY - 84; // Using 'window.scrollY' instead of 'window.pageYOffset'
-
+      const offsetPosition = elementTop + window.scrollY - OFFSET;
+      // Scroll
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
       });
     }
-  };
-
-  // Scroll to put choiceText at top on render, accounting for the navbar
-  useEffect(() => {
-    handleScroll();
   }, [choiceText]);
 
   return (

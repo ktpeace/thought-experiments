@@ -35,7 +35,7 @@ const Welcome: React.FC<WelcomeProps> = ({ setIsWhat, setIsExtra }) => {
       </h2>
       {/* Welcome buttons */}
       {!choiceText && (
-        <div className="w-full flex justify-between items-center gap-16">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-16">
           <button
             className={`w-72 px-4 py-1 rounded-lg bg-pool-500 text-white hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 text-xl font-sans`}
             onClick={() => choiceHandler("what")}

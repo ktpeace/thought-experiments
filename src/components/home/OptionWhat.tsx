@@ -44,7 +44,7 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
 
       {/* Buttons for yes/no */}
       {isYes === null && (
-        <div className="w-full my-16 flex justify-center gap-16">
+        <div className="w-full my-16 flex flex-col md:flex-row justify-center gap-16">
           <button className="clean-button" onClick={() => setIsYes(true)}>
             Yes
           </button>
@@ -71,7 +71,7 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
           )}
           {/* Buttons if extra text not yet shown */}
           {!isExtraPicked && !isExtra && (
-            <div className="w-full my-16 flex justify-center gap-16">
+            <div className="w-full my-16 flex flex-col md:flex-row justify-center gap-16">
               <button className="clean-button" onClick={() => setIsExtra(true)}>
                 {choiceText}
               </button>
