@@ -4,6 +4,7 @@ import NextImage from "@/utils/NextImage";
 import Link from "next/link";
 import OptionExtra from "./OptionExtra";
 import ChoiceText from "./ChoiceText";
+import Image from "next/image";
 
 const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
   const [isYes, setIsYes] = useState<boolean | null>(null);
@@ -24,7 +25,15 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
           src="/media/home/trolley.jpg"
           alt="delicate drawn-style trolley car"
         />
-        <NextImage src="/media/home/trolley-guy.jpg" alt="concerned man" />
+        {/* <NextImage src="/media/home/trolley-guy.jpg" alt="concerned man" /> */}
+        <div className={`w-80 h-80 relative`}>
+          <Image
+            src="/media/home/trolley-guy.jpg"
+            alt="concerned man"
+            fill
+            className="object-contain rounded-lg"
+          />
+        </div>
       </div>
       <p>
         The choices you make may surprise you, and considering an experiment may
