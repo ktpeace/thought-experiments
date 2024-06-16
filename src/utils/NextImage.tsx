@@ -12,7 +12,7 @@ const NextImage = ({
   height?: string;
 }) => {
   return (
-    <div className={`${width} ${height} relative`}>
+    <div className={`w-64 h-64 relative`}>
       <Image src={src} alt={alt} fill className="object-contain rounded-lg" />
     </div>
   );

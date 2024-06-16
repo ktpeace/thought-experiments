@@ -19,12 +19,12 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
         important ideas like “truth.” Often, they present difficult moral
         dilemmas and ask you to make a choice.
       </p>
-      <div className="w-full flex justify-center gap-16">
+      <div className="w-full flex flex-col md:flex-row justify-center items-center gap-16">
         <NextImage
-          src="/media/home/trolley.webp"
+          src="/media/home/trolley.jpg"
           alt="delicate drawn-style trolley car"
         />
-        <NextImage src="/media/home/trolley.webp" alt="concerned man" />
+        <NextImage src="/media/home/trolley-guy.jpg" alt="concerned man" />
       </div>
       <p>
         The choices you make may surprise you, and considering an experiment may
@@ -32,14 +32,16 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
       </p>
       <p>Scary, huh?</p>
       <p>
-        But avoiding exploration, relying on the ideas absorbed from one’s
+        But avoiding exploration, relying on the ideas absorbed from one&apos;s
         upbringing, society, and gut feeling...
       </p>
       <p>Well, my dog can do that (and a very fine dog she is).</p>
-      <NextImage src="/media/home/trolley.webp" alt="happy dog" />
+      <div className="w-full flex justify-center">
+        <NextImage src="/media/home/dog.jpg" alt="happy dog" />
+      </div>
       <p>
-        It’s better to live an examined life and{" "}
-        <span>forge paths of light</span> in the dark, don’t you think?
+        It&apos;s better to live an examined life and{" "}
+        <span>forge paths of light</span> in the dark, don&apos;t you think?
       </p>
 
       {/* Buttons for yes/no */}
