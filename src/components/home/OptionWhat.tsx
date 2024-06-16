@@ -25,7 +25,15 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
           src="/media/home/trolley.jpg"
           alt="delicate drawn-style trolley car"
         />
-        <NextImage src="/media/home/trolley-guy.jpg" alt="concerned man" />
+        {/* <NextImage src="/media/home/trolley-guy.jpg" alt="concerned man" /> */}
+        <div className={`w-80 h-80 relative`}>
+          <Image
+            src="/media/home/trolley-guy.jpg"
+            alt="concerned man"
+            fill
+            className="object-contain rounded-lg"
+          />
+        </div>
       </div>
       <p>
         The choices you make may surprise you, and considering an experiment may
