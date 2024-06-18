@@ -9,7 +9,7 @@ const Home = () => {
   const [isExtra, setIsExtra] = useState(false);
 
   return (
-    <div className="w-10/12 flex flex-col justify-center">
+    <div className="main-container justify-center">
       {/* Welcome - what / extra / to experiments */}
       <Welcome setIsWhat={setIsWhat} setIsExtra={setIsExtra} />
 

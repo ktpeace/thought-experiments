@@ -24,9 +24,10 @@ const experimentData: Record<string, ExperimentData> = {
   "ship-of-theseus": {
     title: "The Ship of Theseus",
     description: [
-      "Theseus returned to Athens in a large ship, which was preserved to honor the hero. Over time, boards and other elements began to rot, so they were replaced with essentially identical parts. Eventually, every part of the ship was replaced.",
+      "Theseus returned to Athens in a large ship with 30 oars. To honor the hero, the city residents preserved his ship.",
+      "Over time, boards and other elements began to rot, so they were replaced with parts that were identical in function and appearance. Eventually, every part of the ship was replaced, from sails to oars. Athenians still came to admire the hero's ship.",
     ],
-    question: "Is it still the same ship?",
+    question: "But is this the same ship that Theseus returned in?",
   },
   "deceptive-demon": {
     title: "The Deceiving Demon",
@@ -38,9 +39,10 @@ const experimentData: Record<string, ExperimentData> = {
   "sorites-paradox": {
     title: "The Sorites Paradox",
     description: [
-      `You have a heap of ten thousand grains of sand, from which you remove one grain. You continue removing grains of sand, one by one, until you only have one grain remaining. Is the heap still a heap? If not, when precisely did it change?`,
+      `You have a heap of ten thousand grains of sand, from which you remove one grain. You continue removing grains of sand, one by one, until you only have one grain remaining.`,
+      `Is the heap still a "heap"? If not, when precisely did it change?`,
     ],
-    question: `Can the removal of a single grain of sand turn a "heap" into a non-heap?`,
+    question: `Can the removal of a single grain of sand turn a heap into a non-heap?`,
   },
 };
 
