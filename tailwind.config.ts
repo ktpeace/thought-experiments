@@ -17,6 +17,8 @@ const config: Config = {
         "pool-700": "#217378",
         "pool-800": "#18555A",
         "pool-900": "#0F373C",
+        "dusky-600": "#1e2529",
+        "dusky-800": "#0d1012",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

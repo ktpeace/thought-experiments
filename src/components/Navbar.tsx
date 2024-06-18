@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import NavbarMenu from "./NavbarMenu";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 w-full h-16 px-4 z-50 flex items-center bg-[#0d1012]">
-      <Link href="/" className="opacity-20 flex items-center gap-2">
+    <nav className="fixed top-0 w-full h-16 px-4 z-50 flex justify-between items-center bg-dusky-800">
+      <Link href="/" className="opacity-30 flex items-center gap-2">
         <Image
           width="75"
           height="74"
@@ -16,6 +17,7 @@ const Navbar = () => {
           Thought Experiment Explorer
         </span>
       </Link>
+      <NavbarMenu />
     </nav>
   );
 };
