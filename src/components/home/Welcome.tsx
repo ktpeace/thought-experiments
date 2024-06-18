@@ -11,7 +11,7 @@ interface WelcomeProps {
 const Welcome: React.FC<WelcomeProps> = ({ setIsWhat, setIsExtra }) => {
   const [choiceText, setChoiceText] = useState("");
   const whatText = "What’s a thought experiment, exactly?";
-  const extraText = "Anything extra I should know before diving in?";
+  const extraText = "Anything I should know before diving in?";
 
   function choiceHandler(choice: string) {
     if (choice === "what") {
@@ -24,10 +24,10 @@ const Welcome: React.FC<WelcomeProps> = ({ setIsWhat, setIsExtra }) => {
   }
 
   return (
-    <section className="w-full pb-16 mt-[-64px] min-h-screen-safe md:min-h-screen flex flex-col justify-between">
+    <section className="w-full pt-12 pb-8 md:pb-16 mt-[-64px] min-h-screen-safe md:min-h-screen flex flex-col justify-between">
       <div className="h-16"></div>
       {/* Welcome text */}
-      <h2 className="mb-24 text-5xl md:text-6xl text-neutral-200 flex flex-col self-center">
+      <h2 className="mb-16 text-5xl md:text-6xl text-neutral-200 flex flex-col self-center">
         <span className="text-pool-500">Welcome</span>
         <span>to Thought</span>
         <span>Experiment</span>
@@ -35,15 +35,15 @@ const Welcome: React.FC<WelcomeProps> = ({ setIsWhat, setIsExtra }) => {
       </h2>
       {/* Welcome buttons */}
       {!choiceText && (
-        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 lg:gap-12 xl:gap-16">
           <button
-            className={`w-72 px-4 py-1 rounded-lg bg-pool-500 text-white hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 text-xl font-sans`}
+            className={`w-72 px-4  py-1 rounded-lg bg-pool-500 text-white hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 text-xl text-center font-sans`}
             onClick={() => choiceHandler("what")}
           >
             {whatText}
           </button>
           <button
-            className={`w-72 px-4 py-1 rounded-lg border hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 text-xl font-sans`}
+            className={`w-72 px-4 md:px-1 lg:px-4 py-1 rounded-lg border hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 text-xl text-center font-sans`}
             onClick={() => choiceHandler("extra")}
           >
             {extraText}

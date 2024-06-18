@@ -24,11 +24,11 @@ body {
 }
 
 .main-container {
-  @apply w-10/12 flex flex-col;
+  @apply w-full xl:w-10/12 flex flex-col;
 }
 
 .clean-button {
-  @apply w-72 min-h-[60px] px-4 py-1 flex justify-center items-center rounded-lg border text-xl hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 font-sans;
+  @apply w-72 min-h-[60px] px-4 py-1 flex justify-center items-center rounded-lg border text-xl text-center hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 font-sans;
 }
 
 /* @layer utilities {

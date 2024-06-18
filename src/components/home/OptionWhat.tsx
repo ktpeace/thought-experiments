@@ -9,7 +9,7 @@ import Image from "next/image";
 const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
   const [isYes, setIsYes] = useState<boolean | null>(null);
   const [isExtra, setIsExtra] = useState(false);
-  const choiceText = "Anything extra I should know before diving in?";
+  const choiceText = "Anything I should know before diving in?";
 
   return (
     <div className="flex flex-col gap-8">
