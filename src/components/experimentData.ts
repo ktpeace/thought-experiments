@@ -2,6 +2,8 @@ export interface ExperimentData {
   title: string;
   description: string[];
   question: string;
+  origin: string;
+  originLink: string;
 }
 
 const experimentData: Record<string, ExperimentData> = {
@@ -11,6 +13,8 @@ const experimentData: Record<string, ExperimentData> = {
       "A trolley is heading down a track towards five people who are tied up and cannot move. You are standing next to a lever that can divert the trolley onto another track, where only one person is tied up. If you don't pull the lever, the trolley will keep on its original track and kill five people; if you pull it, the five will be saved, but the one on the other track will be killed.",
     ],
     question: "Is it right to pull the lever?",
+    origin: "",
+    originLink: "",
   },
   "mary-and-color-red": {
     title: "Mary & the Color Red",
@@ -20,6 +24,8 @@ const experimentData: Record<string, ExperimentData> = {
     ],
     question:
       "Does Mary learn something new about the color red when she sees the apple?",
+    origin: "",
+    originLink: "",
   },
   "ship-of-theseus": {
     title: "The Ship of Theseus",
@@ -28,13 +34,17 @@ const experimentData: Record<string, ExperimentData> = {
       "Over time, boards and other elements began to rot, so they were replaced with parts that were identical in function and appearance. Eventually, every part of the ship was replaced, from sails to oars. Athenians still came to admire the hero's ship.",
     ],
     question: "But is this the same ship that Theseus returned in?",
+    origin: "",
+    originLink: "",
   },
   "deceptive-demon": {
     title: "The Deceiving Demon",
     description: [
-      `From your earliest memory, you have been under the control of a malicious demon who has deceived you into perceiving this "reality." The sky, the air, the earth, colors, shapes, sounds, animals, people, and all external things are merely the delusions of dreams the demon has devised. Even your body -- your hands, eyes, flesh, blood, and senses -- are only impressions conjured by the demon.`,
+      `From your earliest memory, you have been under the control of a malicious demon who has tricked you into perceiving a fabricated reality. The sky, the air, the earth, colors, shapes, sounds, animals, people, and all external things are merely the delusions of dreams the demon has devised. Even your hands, eyes, flesh, blood, and senses are mere ideas conjured by the demon.`,
     ],
     question: "Is it possible that something like this is true?",
+    origin: "",
+    originLink: "",
   },
   "sorites-paradox": {
     title: "The Sorites Paradox",
@@ -43,6 +53,59 @@ const experimentData: Record<string, ExperimentData> = {
       `Is the heap still a "heap"? If not, when precisely did it change?`,
     ],
     question: `Can the removal of a single grain of sand turn a heap into a non-heap?`,
+    origin: "",
+    originLink: "",
+  },
+  "buridans-ass": {
+    title: "Buridan's Ass",
+    description: [
+      `An electronic donkey needs to recharge its battery. Its clopity-clop metal hooves come to a halt as it finds itself equal distance from two charging stations. Unable to make a rational decision between the two, it stays put until it shuts down.`,
+    ],
+    question: `Is randomness, or even irrationality, a necessary part of existence?`,
+    origin: "",
+    originLink: "",
+  },
+  "blind-men-and-elephant": {
+    title: "The Blind Men and the Elephant",
+    description: [
+      `A traveler leading an elephant passed a group of blind men. Never having experienced an "elephant," they asked to touch it. One touched its trunk, one its ear, one the tip of its tail, etc. When they described it, the first said that it was like a snake; the second, that it was like a fan; the third, that it was like a broom, and so on.`,
+    ],
+    question: `Could our limited life experiences and perceptions actually be a deep misunderstanding of reality?`,
+    origin: "Ancient Indian subcontinent",
+    originLink:
+      "https://www.accesstoinsight.org/tipitaka/kn/ud/ud.6.04.than.html",
+  },
+  "veil-of-ignorance": {
+    title: "The Veil of Ignorance",
+    description: [
+      `You stand before an unfinished world with no human inhabitants. It's your task to decide how human societies across the world will operate. Once the decisions are finalized, those societies will spring into existence.`,
+      `You will be reborn there as an infant.`,
+      `But, you stand behind a veil of ignorance. You don't know where in the world you'll be born, or into what circumstances. You don't even know your sex, skin color, or any other genetics.`,
+    ],
+    question: `Would being in this position motivate you to structure the world such that all humans have the best lives possible?`,
+    origin: "John Rawls (1921-2002)",
+    originLink: "",
+  },
+  "experience-machine": {
+    title: "The Experience Machine",
+    description: [
+      `There is an "experience machine" so advanced that it can give you any kind of experiences you desire. Everyone else on Earth can plug in, too, so there's no need to stay unplugged to serve them. There are boundless options: living on any kind of world with any kind of body, shifting enjoyments, challenges, or whatever you desire. Every two years, your experiences will end so that you can select new ones and continue.`,
+    ],
+    question: `Is there any solid reason NOT to plug in?`,
+    origin: "Robert Nozick (1938-2002)",
+    originLink: "https://rintintin.colorado.edu/~vancecd/phil3160/Nozick1.pdf",
+  },
+  "life-you-can-save": {
+    title: "The Life You Can Save",
+    description: [
+      `"On your way to work, you pass a small pond. Children sometimes play in the pond, which is only about knee-deep. The weather’s cool, though, and it’s early, so you are surprised to see a child splashing about in the pond.`,
+      `As you get closer, you see that it is a very young child, just a toddler, who is flailing about, unable to stay upright or walk out of the pond. You look for the parents or babysitter, but there is no one else around. The child is unable to keep her head above the water for more than a few seconds at a time. If you don’t wade in and pull her out, she seems likely to drown.`,
+      `Wading in is easy and safe, but you will ruin the new shoes you bought only a few days ago, and get your suit wet and muddy. By the time you hand the child over to someone responsible for her, and change your clothes, you’ll be late for work. What should you do?"`,
+      `The true question of this experiment is not whether you should help the child, to which nearly everyone says yes. Every day on Earth, people who are doing OK spend money on non-essential items, while some children are suffering and dying in far worse conditions. The experiment asks, although you may have a RIGHT to not help them, SHOULD you?`,
+    ],
+    question: `Is neglecting to help the far less fortunate or even dying anywhere on Earth, assuming you could help with relatively small efforts, similar to neglecting to save the drowning child?`,
+    origin: "Peter Singer (1946-)",
+    originLink: "",
   },
 };
 

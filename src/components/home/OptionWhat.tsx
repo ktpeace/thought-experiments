@@ -22,7 +22,7 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
       </p>
       <div className="w-full flex flex-col md:flex-row justify-center items-center gap-16">
         <NextImage
-          src="/media/home/trolley.jpg"
+          src="/media/experiment-images/experience-machine.jpg"
           alt="delicate drawn-style trolley car"
         />
         {/* <NextImage src="/media/home/trolley-guy.jpg" alt="concerned man" /> */}
