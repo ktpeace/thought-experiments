@@ -4,11 +4,7 @@ import Link from "next/link";
 const HomeImages = () => {
   const imagesPath = "/media/experiment-icons/";
 
-  const imageNames = [
-    "trolley-problem",
-    "mary-and-color-red",
-    "ship-of-theseus",
-  ];
+  const imageNames = ["trolley-problem", "marys-room", "ship-of-theseus"];
 
   const imagesExtension = ".png";
 

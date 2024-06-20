@@ -2,6 +2,7 @@ export interface ExperimentData {
   title: string;
   description: string[];
   question: string;
+  alt: string;
   origin: string;
   originLink: string;
 }
@@ -13,18 +14,20 @@ const experimentData: Record<string, ExperimentData> = {
       "A trolley is heading down a track towards five people who are tied up and cannot move. You are standing next to a lever that can divert the trolley onto another track, where only one person is tied up. If you don't pull the lever, the trolley will keep on its original track and kill five people; if you pull it, the five will be saved, but the one on the other track will be killed.",
     ],
     question: "Is it right to pull the lever?",
-    origin: "",
-    originLink: "",
+    alt: "trolley car at night",
+    origin: "Philippa Foot (1920-2010)",
+    originLink: "https://www.britannica.com/topic/trolley-problem",
   },
-  "mary-and-color-red": {
-    title: "Mary & the Color Red",
+  "marys-room": {
+    title: "Mary's Room",
     description: [
       "Mary is a brilliant scientist who has been confined to a black-and-white room her entire life. She has access to all the scientific information about color. She knows everything about the wavelengths of light, the physiology of the eyes, and the brain processes involved in color vision. However, Mary has never seen color herself; she has only experienced the world in black, white, and shades of gray.",
       "One day, Mary is released from her black-and-white room and sees a red apple for the first time.",
     ],
     question:
       "Does Mary learn something new about the color red when she sees the apple?",
-    origin: "",
+    alt: "woman in a black and white room with messy bookshelves",
+    origin: "Frank Jackson (1943-)",
     originLink: "",
   },
   "ship-of-theseus": {
@@ -34,15 +37,17 @@ const experimentData: Record<string, ExperimentData> = {
       "Over time, boards and other elements began to rot, so they were replaced with parts that were identical in function and appearance. Eventually, every part of the ship was replaced, from sails to oars. Athenians still came to admire the hero's ship.",
     ],
     question: "But is this the same ship that Theseus returned in?",
+    alt: "ancient Greek ship being repaired",
     origin: "",
     originLink: "",
   },
-  "deceptive-demon": {
+  "deceiving-demon": {
     title: "The Deceiving Demon",
     description: [
       `From your earliest memory, you have been under the control of a malicious demon who has tricked you into perceiving a fabricated reality. The sky, the air, the earth, colors, shapes, sounds, animals, people, and all external things are merely the delusions of dreams the demon has devised. Even your hands, eyes, flesh, blood, and senses are mere ideas conjured by the demon.`,
     ],
     question: "Is it possible that something like this is true?",
+    alt: "malicious grinning huge demon staring at the tiny figure of a person",
     origin: "",
     originLink: "",
   },
@@ -53,6 +58,7 @@ const experimentData: Record<string, ExperimentData> = {
       `Is the heap still a "heap"? If not, when precisely did it change?`,
     ],
     question: `Can the removal of a single grain of sand turn a heap into a non-heap?`,
+    alt: "pile of sand",
     origin: "",
     originLink: "",
   },
@@ -62,6 +68,7 @@ const experimentData: Record<string, ExperimentData> = {
       `An electronic donkey needs to recharge its battery. Its clopity-clop metal hooves come to a halt as it finds itself equal distance from two charging stations. Unable to make a rational decision between the two, it stays put until it shuts down.`,
     ],
     question: `Is randomness, or even irrationality, a necessary part of existence?`,
+    alt: "",
     origin: "",
     originLink: "",
   },
@@ -71,6 +78,7 @@ const experimentData: Record<string, ExperimentData> = {
       `A traveler leading an elephant passed a group of blind men. Never having experienced an "elephant," they asked to touch it. One touched its trunk, one its ear, one the tip of its tail, etc. When they described it, the first said that it was like a snake; the second, that it was like a fan; the third, that it was like a broom, and so on.`,
     ],
     question: `Could our limited life experiences and perceptions actually be a deep misunderstanding of reality?`,
+    alt: "men touching an elephant",
     origin: "Ancient Indian subcontinent",
     originLink:
       "https://www.accesstoinsight.org/tipitaka/kn/ud/ud.6.04.than.html",
@@ -83,6 +91,7 @@ const experimentData: Record<string, ExperimentData> = {
       `But, you stand behind a veil of ignorance. You don't know where in the world you'll be born, or into what circumstances. You don't even know your sex, skin color, or any other genetics.`,
     ],
     question: `Would being in this position motivate you to structure the world such that all humans have the best lives possible?`,
+    alt: "man standing on a glass platform staring down at the misty Earth",
     origin: "John Rawls (1921-2002)",
     originLink: "",
   },
@@ -92,6 +101,7 @@ const experimentData: Record<string, ExperimentData> = {
       `There is an "experience machine" so advanced that it can give you any kind of experiences you desire. Everyone else on Earth can plug in, too, so there's no need to stay unplugged to serve them. There are boundless options: living on any kind of world with any kind of body, shifting enjoyments, challenges, or whatever you desire. Every two years, your experiences will end so that you can select new ones and continue.`,
     ],
     question: `Is there any solid reason NOT to plug in?`,
+    alt: "woman wearing VR goggles surrounded by machinery",
     origin: "Robert Nozick (1938-2002)",
     originLink: "https://rintintin.colorado.edu/~vancecd/phil3160/Nozick1.pdf",
   },
@@ -104,8 +114,9 @@ const experimentData: Record<string, ExperimentData> = {
       `The true question of this experiment is not whether you should help the child, to which nearly everyone says yes. Every day on Earth, people who are doing OK spend money on non-essential items, while some children are suffering and dying in far worse conditions. The experiment asks, although you may have a RIGHT to not help them, SHOULD you?`,
     ],
     question: `Is neglecting to help the far less fortunate or even dying anywhere on Earth, assuming you could help with relatively small efforts, similar to neglecting to save the drowning child?`,
+    alt: "child in a pond yelling and holding out their arms",
     origin: "Peter Singer (1946-)",
-    originLink: "",
+    originLink: "https://www.thelifeyoucansave.org/child-in-the-pond/",
   },
 };
 
