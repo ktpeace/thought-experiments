@@ -6,6 +6,7 @@ const About = () => {
         This site is an active work in progress begun in May 2024. If you
         somehow stumbled on it, go away and come back tomorrow.
       </p>
+      <p>I generated the images using Midjourney.</p>
     </div>
   );
 };

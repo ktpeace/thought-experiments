@@ -44,10 +44,10 @@ const SlidingImages = () => {
       className="fixed w-screen bottom-0 left-0 right-0 flex justify-between px-12 pt-4 pb-4 bg-transparent"
     >
       {/* {isHovered && ( */}
-      <div className="fixed w-screen bottom-0 left-0 right-0 flex justify-between px-12 pt-4 pb-4 bg-dusky-800">
+      <div className="fixed w-screen bottom-0 left-0 right-0 flex justify-between px-4 pt-4 pb-4 bg-dusky-800">
         <button
           onClick={scrollLeft}
-          className="p-2 text-white hover:opacity-50"
+          className="mx-2 text-white opacity-50 hover:opacity-100"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ const SlidingImages = () => {
         </div>
         <button
           onClick={scrollRight}
-          className="p-2 text-white hover:opacity-50"
+          className="mr-6 ml-2 text-white opacity-50 hover:opacity-100"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
