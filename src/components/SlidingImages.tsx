@@ -86,7 +86,7 @@ const SlidingImages = () => {
         </div>
         <button
           onClick={scrollRight}
-          className="mr-6 ml-2 text-white opacity-50 hover:opacity-100"
+          className="xs:mr-2 sm:mr-6 ml-2 text-white opacity-50 hover:opacity-100"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
