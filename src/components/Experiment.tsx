@@ -21,7 +21,7 @@ const Experiment = () => {
 
   return (
     <div className="md:max-w-70p lg:max-w-50p text-neutral-200">
-      <div>
+      <div className="w-full">
         <h2 className="mb-10 text-center uppercase font-medium text-2xl">
           {experiment.title}
         </h2>
