@@ -21,7 +21,7 @@ const Experiment = () => {
 
   return (
     <div className="md:max-w-70p lg:max-w-50p text-neutral-200">
-      <div className="w-full">
+      <div>
         <h2 className="mb-10 text-center uppercase font-medium text-2xl">
           {experiment.title}
         </h2>
@@ -29,8 +29,8 @@ const Experiment = () => {
           <NextImage
             src={`/media/experiment-images/${id}.jpg`}
             alt={experiment.alt}
-            width="w-96"
-            height="h-96"
+            width="w-80"
+            height="h-80"
           />
         </div>
         <div className="mb-10 flex flex-col gap-6 text-xl">
