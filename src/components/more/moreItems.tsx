@@ -32,8 +32,8 @@ const moreItems = [
     description: (
       <p>
         This site makes it fun and easy to learn about different logical
-        fallacies that can trip us up. Or to share them with people who won't
-        stop being wrong. Not that I did it.
+        fallacies that can trip us up. Or to share them with people who
+        won&apos;t stop being wrong. Not that I did it.
       </p>
     ),
   },
@@ -44,9 +44,9 @@ const moreItems = [
     description: (
       <p>
         Gorgeous, well-researched animated videos on topics in science,
-        philosophy, etc. Example titles include, "The Paradox of an Infinite
-        Universe," "Loneliness," and, "The Most Dangerous Weapon is Not
-        Nuclear."
+        philosophy, etc. Example titles include, &quot;The Paradox of an
+        Infinite Universe,&quot; &quot;Loneliness,&quot; and, &quot;The Most
+        Dangerous Weapon is Not Nuclear.&quot;
       </p>
     ),
   },
@@ -56,9 +56,9 @@ const moreItems = [
     icon: <ChatIcon />,
     description: (
       <p>
-        A forum site that aims to encourage rational thought. I haven't much
-        engaged with it, so I can't speak to any issues. But it surely full of
-        ideas.
+        A forum site that aims to encourage rational thought. I haven&apos;t
+        much engaged with it, so I can&apos;t speak to any issues. But it surely
+        full of ideas.
       </p>
     ),
   },
