@@ -13,7 +13,7 @@ const Navbar = () => {
           alt="icon of brain with compass"
           className="w-8 h-auto"
         />
-        <p className="uppercase text-[0.5rem] md:text-md flex flex-col md:flex-row md:gap-1.5">
+        <p className="uppercase text-[0.6rem] md:text-md flex flex-col md:flex-row md:gap-1.5">
           <span>Thought</span> <span>Experiment</span> <span>Explorer</span>
         </p>
       </Link>
