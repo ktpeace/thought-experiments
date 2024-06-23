@@ -1,21 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import NavbarMenu from "./NavbarMenu";
+import NextImage from "@/utils/NextImage";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 w-full h-16 px-4 z-50 flex justify-between items-center bg-dusky-800">
-      <Link href="/" className="opacity-30 flex items-center gap-2">
+    <nav className="fixed top-0 w-full h-12 px-4 z-50 flex justify-between items-center bg-dusky-800">
+      <Link
+        href="/"
+        className="relative h-full opacity-30 flex items-center gap-2"
+      >
         <Image
-          width="75"
-          height="74"
-          src="/media/thought-explorer.png"
+          src="/media/logo.png"
           alt="icon of brain with compass"
-          className="w-8 h-auto"
+          width={25}
+          height={25}
+          objectFit="contain"
         />
-        <p className="uppercase text-[0.6rem] md:text-md flex flex-col md:flex-row gap-0.5 md:gap-1.5">
-          <span className="mb-[-0.3rem]">Thought</span>{" "}
-          <span className="mb-[-0.3rem]">Experiment</span> <span>Explorer</span>
+        {/* Thought Experiment Explorer  */}
+        <p className="hidden md:inline-block uppercase text-base">
+          Thought Experiment Explorer
         </p>
       </Link>
       <NavbarMenu />

@@ -21,8 +21,9 @@ const experimentData: Record<string, ExperimentData> = {
   "marys-room": {
     title: "Mary's Room",
     description: [
-      "Mary is a brilliant scientist who has been confined to a black-and-white room her entire life. She has access to all the scientific information about color. She knows everything about the wavelengths of light, the physiology of the eyes, and the brain processes involved in color vision. However, Mary has never seen color herself; she has only experienced the world in black, white, and shades of gray.",
-      "One day, Mary is released from her black-and-white room and sees a red apple for the first time.",
+      `Mary is a brilliant scientist who has been confined to a black-and-white room her entire life. She has access to all the scientific information about color. She knows everything about the wavelengths of light, the physiology of the eyes, and the brain processes involved in color vision.`,
+      `However, Mary has never seen color herself; she has only experienced the world in black, white, and shades of gray.`,
+      `One day, Mary is released from her black-and-white room and sees a red apple for the first time.`,
     ],
     question:
       "Does Mary learn something new about the color red when she sees the apple?",

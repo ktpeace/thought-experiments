@@ -21,7 +21,7 @@ const Experiment = () => {
   }
 
   return (
-    <div className="md:max-w-70p lg:max-w-50p text-neutral-200">
+    <div className="md:max-w-70p 2xl:max-w-50p text-neutral-200">
       <div className="w-full flex flex-col justify-center items-center">
         <div className="mb-8 w-full flex flex-col justify-center items-center">
           <h2 className="uppercase font-medium text-2xl">{experiment.title}</h2>
@@ -41,7 +41,7 @@ const Experiment = () => {
           <NextImage
             src={`/media/experiment-images/${id}.jpg`}
             alt={experiment.alt}
-            width="w-80"
+            width="w-80" // 320px
             height="h-80"
           />
         </div>
