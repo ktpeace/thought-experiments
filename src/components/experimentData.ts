@@ -61,7 +61,7 @@ const experimentData: Record<string, ExperimentData> = {
     ],
     question: `Can the removal of a single grain of sand turn a heap into a non-heap?`,
     alt: "pile of sand",
-    origin: "Eubulides (4th century BC)",
+    origin: "Eubulides (~350 BC)",
     originLink: "https://plato.stanford.edu/entries/sorites-paradox",
   },
   "buridans-ass": {
@@ -71,8 +71,7 @@ const experimentData: Record<string, ExperimentData> = {
     ],
     question: `Is randomness, or even irrationality, a necessary part of existence?`,
     alt: "Robotic donkey standing still on tatami mats, with a goofy donkey painting in the background",
-    origin:
-      "Anonymous satirization of Jean Buridan's moral determinism (1359-1362)",
+    origin: "Anonymous satire of moral determinist Jean Buridan (1359-1362)",
     originLink: "https://en.wikipedia.org/wiki/Buridan%27s_ass",
   },
   "blind-men-and-elephant": {
