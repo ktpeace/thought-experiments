@@ -25,6 +25,7 @@ const config: Config = {
         "pool-700": "#217378",
         "pool-800": "#18555A",
         "pool-900": "#0F373C",
+        "dusky-400": "#293038",
         "dusky-600": "#1e2529", // nearly black
         "dusky-800": "#0d1012",
       },

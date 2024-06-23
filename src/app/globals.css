@@ -30,7 +30,15 @@ body {
 }
 
 .clean-button {
-  @apply w-72 min-h-[60px] px-4 py-1 flex justify-center items-center rounded-lg border text-xl text-center hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50;
+  @apply w-72 min-h-[60px] px-4 py-1 flex justify-center items-center rounded-lg border text-xl text-center hover:bg-dusky-400 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50;
+}
+
+.black-button {
+  @apply w-72 min-h-[66px] px-4 py-1 flex justify-center items-center rounded-lg border border-dusky-600 text-white text-xl text-center bg-black hover:bg-dusky-800 hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50;
+}
+
+.pool-button {
+  @apply w-72 px-4 py-1 rounded-lg bg-pool-700 text-white hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 text-xl text-center;
 }
 
 /* @layer utilities {

@@ -28,7 +28,7 @@ const OptionExtra = ({ isWhatPicked }: { isWhatPicked: boolean }) => {
       {/* Button if what text already shown */}
       {isWhatPicked && (
         <div className="w-full flex justify-center">
-          <Link href="/experiments" className="clean-button">
+          <Link href="/experiments" className="black-button">
             To the experiments!
           </Link>
         </div>
@@ -36,10 +36,10 @@ const OptionExtra = ({ isWhatPicked }: { isWhatPicked: boolean }) => {
       {/* Buttons if what text not yet shown */}
       {!isWhatPicked && !isWhat && (
         <div className="w-full my-16 flex flex-col md:flex-row justify-center gap-16">
-          <button className="clean-button" onClick={() => setIsWhat(true)}>
+          <button className="pool-button" onClick={() => setIsWhat(true)}>
             {choiceText}
           </button>
-          <Link href="/experiments" className="clean-button">
+          <Link href="/experiments" className="black-button">
             GET TO THE EXPERIMENTS!
           </Link>
         </div>

@@ -82,7 +82,7 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
           {/* Button if extra text already shown */}
           {isExtraPicked && (
             <div className="w-full flex justify-center">
-              <Link href="/experiments" className="clean-button">
+              <Link href="/experiments" className="black-button">
                 To the experiments!
               </Link>
             </div>
@@ -93,7 +93,7 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
               <button className="clean-button" onClick={() => setIsExtra(true)}>
                 {choiceText}
               </button>
-              <Link href="/experiments" className="clean-button">
+              <Link href="/experiments" className="black-button">
                 GET TO THE EXPERIMENTS!
               </Link>
             </div>

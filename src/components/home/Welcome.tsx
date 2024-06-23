@@ -36,19 +36,16 @@ const Welcome: React.FC<WelcomeProps> = ({ setIsWhat, setIsExtra }) => {
       {/* Welcome buttons */}
       {!choiceText && (
         <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 lg:gap-12 xl:gap-16">
-          <button
-            className={`w-72 px-4 py-1 rounded-lg bg-pool-500 text-white hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 text-xl text-center`}
-            onClick={() => choiceHandler("what")}
-          >
+          <button className="pool-button" onClick={() => choiceHandler("what")}>
             {whatText}
           </button>
           <button
-            className={`w-72 px-4 md:px-1 lg:px-4 py-1 rounded-lg border hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 text-xl text-center`}
+            className="clean-button"
             onClick={() => choiceHandler("extra")}
           >
             {extraText}
           </button>
-          <Link href="/experiments" className="clean-button">
+          <Link href="/experiments" className="black-button">
             GET TO THE EXPERIMENTS!
           </Link>
         </div>
