@@ -13,9 +13,9 @@ const Navbar = () => {
           alt="icon of brain with compass"
           className="w-8 h-auto"
         />
-        <span className="uppercase font-medium">
-          Thought Experiment Explorer
-        </span>
+        <p className="uppercase text-[0.5rem] md:text-md flex flex-col md:flex-row md:gap-1.5">
+          <span>Thought</span> <span>Experiment</span> <span>Explorer</span>
+        </p>
       </Link>
       <NavbarMenu />
     </nav>
