@@ -5,37 +5,39 @@ import { useEffect, useRef, useState } from "react";
 import experimentData from "./experimentData";
 
 const SlidingImages = () => {
+  // Images
   const imagesPath = "/media/experiment-images/";
   const imagesExtension = ".jpg";
   const [imageNames, setImageNames] = useState<string[][]>([]);
+  // Scrolling
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [disableLeft, setDisableLeft] = useState(true);
   const [disableRight, setDisableRight] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    console.log("disable changed:", disableLeft, disableRight);
-  }, [disableLeft, disableRight]);
-
+  // Disable right or left button if end of data on that side
   const checkScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      setDisableLeft(scrollLeft <= 0);
-      setDisableRight(scrollLeft + clientWidth >= scrollWidth - 1);
+      setDisableLeft(scrollLeft <= 5); // Adjusted condition for left
+      setDisableRight(scrollLeft + clientWidth >= scrollWidth - 5);
     }
   };
 
+  // Scroll left
   const scrollLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
     }
   };
 
+  // Scroll right
   const scrollRight = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
     }
   };
 
+  // Set image names for hover titles & alts
   useEffect(() => {
     if (experimentData) {
       let tempImageNames: [string, string][] = [];
@@ -47,19 +49,21 @@ const SlidingImages = () => {
     }
   }, []);
 
+  // Check scroll potential on render or resize
   useEffect(() => {
     const current = scrollRef.current;
     if (current) {
-      checkScroll(); // Initial check on render
+      checkScroll();
       current.addEventListener("scroll", checkScroll);
-      window.addEventListener("resize", checkScroll); // Add resize event listener
+      window.addEventListener("resize", checkScroll);
       return () => {
         current.removeEventListener("scroll", checkScroll);
-        window.removeEventListener("resize", checkScroll); // Cleanup resize event listener
+        window.removeEventListener("resize", checkScroll);
       };
     }
   }, [imageNames]);
 
+  // Image names are the URL names so no point if missing
   if (imageNames.length === 0) return null;
 
   return (
@@ -70,7 +74,7 @@ const SlidingImages = () => {
           onClick={scrollLeft}
           className={`px-4 text-neutral-400 ${
             disableLeft ? "opacity-30" : "opacity-100"
-          } ${!disableLeft && "hover:text-white"}`}
+          } ${!disableLeft && "betterhover:hover:text-white"}`}
           disabled={disableLeft}
         >
           <svg
@@ -98,9 +102,11 @@ const SlidingImages = () => {
             <Link key={name} href={`/experiments/${name}`} title={title}>
               <div
                 key={index}
-                className="w-8 h-8 md:w-12 md:h-12 flex-shrink-0"
+                className="w-8 h-8 md:w-16 md:h-16 flex-shrink-0"
               >
-                <div className="w-full h-full relative overflow-hidden rounded-full hover:opacity-50">
+                <div
+                  className={`w-full h-full relative overflow-hidden rounded-full betterhover:hover:opacity-50`}
+                >
                   <Image
                     src={`${imagesPath}${name}${imagesExtension}`}
                     alt={title}
@@ -117,7 +123,7 @@ const SlidingImages = () => {
           onClick={scrollRight}
           className={`px-4 text-neutral-400 ${
             disableRight ? "opacity-30" : "opacity-100"
-          } ${!disableRight && "hover:text-white"}`}
+          } ${!disableRight && "betterhover:hover:text-white"}`}
           disabled={disableRight}
         >
           <svg

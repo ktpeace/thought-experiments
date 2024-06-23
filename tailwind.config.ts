@@ -47,8 +47,8 @@ const config: Config = {
       height: {
         "screen-safe": "calc(100vh - 14px - env(safe-area-inset-bottom))",
       },
-      future: {
-        hoverOnlyWhenSupported: true,
+      screens: {
+        betterhover: { raw: "(hover: hover)" },
       },
     },
   },

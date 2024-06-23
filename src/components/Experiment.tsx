@@ -24,7 +24,9 @@ const Experiment = () => {
     <div className="md:max-w-70p 2xl:max-w-50p text-neutral-200">
       <div className="w-full flex flex-col justify-center items-center">
         <div className="mb-8 w-full flex flex-col justify-center items-center">
-          <h2 className="uppercase font-medium text-2xl">{experiment.title}</h2>
+          <h2 className="uppercase font-medium text-2xl text-center">
+            {experiment.title}
+          </h2>
           <p>
             <Link
               href={experiment.originLink}
