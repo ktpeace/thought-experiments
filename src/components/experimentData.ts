@@ -76,7 +76,7 @@ const experimentData: Record<string, ExperimentData> = {
     originLink: "https://en.wikipedia.org/wiki/Buridan%27s_ass",
   },
   "blind-men-and-elephant": {
-    title: "The Blind Men and the Elephant",
+    title: "The Blind Men & the Elephant",
     description: [
       `A traveler leading an elephant passed a group of blind men. Never having experienced an "elephant," they asked to touch it. One touched its trunk, one its ear, one the tip of its tail, etc.`,
       `When they described it, the first said that it was like a snake; the second, that it was like a fan; the third, that it was like a broom, and so on.`,

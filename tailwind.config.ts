@@ -17,7 +17,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "pool-100": "#C5E6E8",
+        "pool-100": "#C5E6E8", // turquoiseish
         "pool-300": "#79C2C9",
         "pool-400": "#54B0B6",
         "pool-500": "#3AADB8", // Base Color
@@ -25,7 +25,7 @@ const config: Config = {
         "pool-700": "#217378",
         "pool-800": "#18555A",
         "pool-900": "#0F373C",
-        "dusky-600": "#1e2529",
+        "dusky-600": "#1e2529", // nearly black
         "dusky-800": "#0d1012",
       },
       backgroundImage: {
@@ -46,6 +46,9 @@ const config: Config = {
       },
       height: {
         "screen-safe": "calc(100vh - 14px - env(safe-area-inset-bottom))",
+      },
+      future: {
+        hoverOnlyWhenSupported: true,
       },
     },
   },

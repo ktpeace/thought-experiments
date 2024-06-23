@@ -8,8 +8,21 @@ const SlidingImages = () => {
   const imagesPath = "/media/experiment-images/";
   const imagesExtension = ".jpg";
   const [imageNames, setImageNames] = useState<string[][]>([]);
+  const [disableLeft, setDisableLeft] = useState(true);
+  const [disableRight, setDisableRight] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
-  // const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    console.log("disable changed:", disableLeft, disableRight);
+  }, [disableLeft, disableRight]);
+
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setDisableLeft(scrollLeft <= 0);
+      setDisableRight(scrollLeft + clientWidth >= scrollWidth - 1);
+    }
+  };
 
   const scrollLeft = () => {
     if (scrollRef.current) {
@@ -28,26 +41,37 @@ const SlidingImages = () => {
       let tempImageNames: [string, string][] = [];
       for (let [key, value] of Object.entries(experimentData)) {
         let pair: [string, string] = [key, value.title];
-        console.log(pair);
         tempImageNames.push(pair);
       }
       setImageNames(tempImageNames);
     }
   }, []);
 
+  useEffect(() => {
+    const current = scrollRef.current;
+    if (current) {
+      checkScroll(); // Initial check on render
+      current.addEventListener("scroll", checkScroll);
+      window.addEventListener("resize", checkScroll); // Add resize event listener
+      return () => {
+        current.removeEventListener("scroll", checkScroll);
+        window.removeEventListener("resize", checkScroll); // Cleanup resize event listener
+      };
+    }
+  }, [imageNames]);
+
   if (imageNames.length === 0) return null;
 
   return (
-    <div
-      // onMouseEnter={() => setIsHovered(true)}
-      // onMouseLeave={() => setIsHovered(false)}
-      className="fixed w-screen bottom-0 left-0 right-0 flex justify-between px-12 pt-4 pb-4 bg-transparent"
-    >
-      {/* {isHovered && ( */}
-      <div className="fixed w-screen bottom-0 left-0 right-0 flex justify-between px-4 pt-4 pb-4 bg-dusky-800">
+    <div className="fixed w-screen bottom-0 left-0 right-0 flex justify-between px-12 pt-4 pb-4 bg-transparent">
+      <div className="fixed w-full bottom-0 left-0 right-0 flex justify-between py-2 bg-dusky-800">
+        {/* Left button */}
         <button
           onClick={scrollLeft}
-          className="mx-2 text-white opacity-50 hover:opacity-100"
+          className={`px-4 text-neutral-400 ${
+            disableLeft ? "opacity-30" : "opacity-100"
+          } ${!disableLeft && "hover:text-white"}`}
+          disabled={disableLeft}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -64,6 +88,7 @@ const SlidingImages = () => {
             />
           </svg>
         </button>
+        {/* Images */}
         <div
           ref={scrollRef}
           className="flex overflow-x-auto space-x-4 gap-6"
@@ -71,8 +96,11 @@ const SlidingImages = () => {
         >
           {imageNames.map(([name, title], index) => (
             <Link key={name} href={`/experiments/${name}`} title={title}>
-              <div key={index} className="flex-shrink-0 w-14 h-14 relative">
-                <div className="w-full h-full relative overflow-hidden rounded-full border-2 border-white hover:opacity-50">
+              <div
+                key={index}
+                className="w-8 h-8 md:w-12 md:h-12 flex-shrink-0"
+              >
+                <div className="w-full h-full relative overflow-hidden rounded-full hover:opacity-50">
                   <Image
                     src={`${imagesPath}${name}${imagesExtension}`}
                     alt={title}
@@ -84,9 +112,13 @@ const SlidingImages = () => {
             </Link>
           ))}
         </div>
+        {/* Right button */}
         <button
           onClick={scrollRight}
-          className="xs:mr-2 sm:mr-6 ml-2 text-white opacity-50 hover:opacity-100"
+          className={`px-4 text-neutral-400 ${
+            disableRight ? "opacity-30" : "opacity-100"
+          } ${!disableRight && "hover:text-white"}`}
+          disabled={disableRight}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +136,6 @@ const SlidingImages = () => {
           </svg>
         </button>
       </div>
-      {/* )} */}
     </div>
   );
 };
