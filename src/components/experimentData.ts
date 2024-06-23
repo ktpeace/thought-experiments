@@ -28,7 +28,7 @@ const experimentData: Record<string, ExperimentData> = {
       "Does Mary learn something new about the color red when she sees the apple?",
     alt: "woman in a black and white room with messy bookshelves",
     origin: "Frank Jackson (1943-)",
-    originLink: "",
+    originLink: "https://plato.stanford.edu/entries/qualia-knowledge",
   },
   "ship-of-theseus": {
     title: "The Ship of Theseus",
@@ -38,8 +38,9 @@ const experimentData: Record<string, ExperimentData> = {
     ],
     question: "But is this the same ship that Theseus returned in?",
     alt: "ancient Greek ship being repaired",
-    origin: "",
-    originLink: "",
+    origin: "Plutarch (46-119 AD)",
+    originLink:
+      "https://www.laphamsquarterly.org/roundtable/restoring-ship-theseus",
   },
   "deceiving-demon": {
     title: "The Deceiving Demon",
@@ -48,8 +49,9 @@ const experimentData: Record<string, ExperimentData> = {
     ],
     question: "Is it possible that something like this is true?",
     alt: "malicious grinning huge demon staring at the tiny figure of a person",
-    origin: "",
-    originLink: "",
+    origin: "René Descartes (1596-1650)",
+    originLink:
+      "https://www.gutenberg.org/cache/epub/70091/pg70091-images.html#Meditat_II",
   },
   "sorites-paradox": {
     title: "The Sorites Paradox",
@@ -59,8 +61,8 @@ const experimentData: Record<string, ExperimentData> = {
     ],
     question: `Can the removal of a single grain of sand turn a heap into a non-heap?`,
     alt: "pile of sand",
-    origin: "",
-    originLink: "",
+    origin: "Eubulides (4th century BC)",
+    originLink: "https://plato.stanford.edu/entries/sorites-paradox",
   },
   "buridans-ass": {
     title: "Buridan's Ass",
@@ -68,9 +70,10 @@ const experimentData: Record<string, ExperimentData> = {
       `An electronic donkey needs to recharge its battery. Its clopity-clop metal hooves come to a halt as it finds itself equal distance from two charging stations. Unable to make a rational decision between the two, it stays put until it shuts down.`,
     ],
     question: `Is randomness, or even irrationality, a necessary part of existence?`,
-    alt: "",
-    origin: "",
-    originLink: "",
+    alt: "Robotic donkey standing still on tatami mats, with a goofy donkey painting in the background",
+    origin:
+      "Anonymous satirization of Jean Buridan's moral determinism (1359-1362)",
+    originLink: "https://en.wikipedia.org/wiki/Buridan%27s_ass",
   },
   "blind-men-and-elephant": {
     title: "The Blind Men and the Elephant",
@@ -94,7 +97,7 @@ const experimentData: Record<string, ExperimentData> = {
     question: `Would being in this position motivate you to structure the world such that all humans have the best lives possible?`,
     alt: "man standing on a glass platform staring down at the misty Earth",
     origin: "John Rawls (1921-2002)",
-    originLink: "",
+    originLink: "https://plato.stanford.edu/entries/original-position",
   },
   "experience-machine": {
     title: "The Experience Machine",
@@ -109,10 +112,9 @@ const experimentData: Record<string, ExperimentData> = {
   "life-you-can-save": {
     title: "The Life You Can Save",
     description: [
-      `"On your way to work, you pass a small pond. Children sometimes play in the pond, which is only about knee-deep. The weather’s cool, though, and it’s early, so you are surprised to see a child splashing about in the pond.`,
-      `As you get closer, you see that it is a very young child, just a toddler, who is flailing about, unable to stay upright or walk out of the pond. You look for the parents or babysitter, but there is no one else around. The child is unable to keep her head above the water for more than a few seconds at a time. If you don’t wade in and pull her out, she seems likely to drown.`,
-      `Wading in is easy and safe, but you will ruin the new shoes you bought only a few days ago, and get your suit wet and muddy. By the time you hand the child over to someone responsible for her, and change your clothes, you’ll be late for work. What should you do?"`,
-      `The true question of this experiment is not whether you should help the child, to which nearly everyone says yes. Every day on Earth, people who are doing OK spend money on non-essential items, while some children are suffering and dying in far worse conditions. The experiment asks, although you may have a RIGHT to not help them, SHOULD you?`,
+      `Running to catch a train to work or school, you see a small child alone in a pond. His head continually drops below the water, and he is beginning to splash desperately in attempts to reach the shore.`,
+      `If you don't wade in and rescue him, he seems likely to drown. It would be safe and easy, but your new shoes and pants would get wet and muddy. You might even miss your train and be late for work. What should you do?`,
+      `WAIT! The true question is not whether you should help the child, to which nearly everyone says yes. Every day on Earth, people who are doing OK spend money on non-essential items, while some are suffering and dying in far worse conditions.`,
     ],
     question: `Is neglecting to help the far less fortunate or even dying anywhere on Earth, assuming you could help with relatively small efforts, similar to neglecting to save the drowning child?`,
     alt: "child in a pond yelling and holding out their arms",

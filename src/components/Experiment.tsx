@@ -1,6 +1,7 @@
 "use client";
 import experimentData, { ExperimentData } from "@/components/experimentData";
 import NextImage from "@/utils/NextImage";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -21,11 +22,22 @@ const Experiment = () => {
 
   return (
     <div className="md:max-w-70p lg:max-w-50p text-neutral-200">
-      <div className="w-full">
-        <h2 className="mb-10 text-center uppercase font-medium text-2xl">
-          {experiment.title}
-        </h2>
-        <div className="w-full mb-10 flex justify-center">
+      <div className="w-full flex flex-col justify-center items-center">
+        <div className="mb-8 w-full flex flex-col justify-center items-center">
+          <h2 className="uppercase font-medium text-2xl">{experiment.title}</h2>
+          <p>
+            <Link
+              href={experiment.originLink}
+              className="underline text-pool-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Origin
+            </Link>
+            : {experiment.origin}
+          </p>
+        </div>
+        <div className="w-full mb-8 flex justify-center">
           <NextImage
             src={`/media/experiment-images/${id}.jpg`}
             alt={experiment.alt}
