@@ -29,7 +29,7 @@ const More = () => {
       </ul>
       <p>
         Have more suggestions? Let me know! ⬅ contact will go here i done told
-        ya in About this site ain't done
+        ya in About this site ain&apos;t done
       </p>
     </div>
   );
