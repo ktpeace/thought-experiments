@@ -7,7 +7,8 @@ const About = () => {
           Thought Experiment Explorer is a solo passion project made starting in
           May 2024. My motivations are my personal interests, programming
           practice, and belief that, especially today, we need to live more
-          examined lives. Or, as the wise might put it, "know thyself."
+          examined lives. Or, as the wise might put it, &quot;know
+          thyself.&quot;
         </p>
         <p>
           If you somehow stumbled on this work in progress today, go away and
@@ -27,8 +28,9 @@ const About = () => {
         <div className="p-4 px-6 flex-1 flex flex-col justify-center gap-2 border border-dusky-400 rounded-lg">
           <h3 className="text-2xl text-center">Donate</h3>
           <p>
-            Enjoying the site? I made it on my own freesy fer nuffin'! Buy me a
-            cup of coffee and "coffee" here means I need new socks:
+            Enjoying the site? I made it on my own freesy fer nuffin&apos;! Buy
+            me a cup of coffee and &quot;coffee&quot; here means I need new
+            socks:
           </p>
           <div>Patreon will go here</div>
         </div>
