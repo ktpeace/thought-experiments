@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="main-container mt-12 gap-4">
+    <div className="main-container my-12 gap-4">
       <h2 className="mb-4 self-center text-3xl">About</h2>
       <section className="mb-8 flex flex-col gap-4">
         <p>
@@ -17,21 +17,22 @@ const About = () => {
         <p>I generated the images using Midjourney.</p>
       </section>
       {/* Contact / Donate */}
-      <section className="flex justify-between gap-8">
-        <div className="p-4 px-6 flex-1 flex flex-col gap-2 border border-dusky-400 rounded-lg">
-          <h3 className="text-2xl text-center">Contact</h3>
+      <section className="flex flex-col lg:flex-row justify-between gap-8">
+        <div className="p-6 flex-1 flex flex-col gap-2 border border-dusky-400 rounded-lg">
+          <h3 className="text-2xl text-center">✒️ Contact</h3>
           <p>
             Ideas? Polite criticisms? Lucrative offers? Contact me at the email
             I am going to put here.
           </p>
         </div>
-        <div className="p-4 px-6 flex-1 flex flex-col justify-center gap-2 border border-dusky-400 rounded-lg">
-          <h3 className="text-2xl text-center">Donate</h3>
+        <div className="p-6 flex-1 flex flex-col justify-center gap-2 border border-dusky-400 rounded-lg">
+          <h3 className="text-2xl text-center">☕️ Donate</h3>
           <p>
             Enjoying the site? I made it on my own freesy fer nuffin&apos;! Buy
             me a cup of coffee and &quot;coffee&quot; here means I need new
-            socks:
+            socks.
           </p>
+          <p>25% of donations will go to charity.</p>
           <div>Patreon will go here</div>
         </div>
       </section>
