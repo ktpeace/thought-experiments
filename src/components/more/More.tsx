@@ -3,11 +3,11 @@ import moreItems from "./moreItems";
 
 const More = () => {
   return (
-    <div className="main-container mt-12 mb-16">
+    <div className="main-container mt-8 md:mt-12 mb-16">
       <h2 className="self-center text-3xl">More Fun Thinkin&apos; Spots</h2>
       <p className="my-8">
-        Hungry for more philosophy stuff that ain&apos;t just WALLS OF TEXT? I
-        got ya!
+        Hungry for more philosophy stuff that ain&apos;t just WALLS OF TEXT?
+        Well!
       </p>
       <ul className="mb-4 flex flex-col gap-8">
         {moreItems.map((item) => {
@@ -27,7 +27,10 @@ const More = () => {
           );
         })}
       </ul>
-      <p>Have more suggestions? Let me know! ⬅ contact will go here someday</p>
+      <p>
+        Have more suggestions? Let me know! ⬅ contact will go here i done told
+        ya in About this site ain't done
+      </p>
     </div>
   );
 };

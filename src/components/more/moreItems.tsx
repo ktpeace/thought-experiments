@@ -57,8 +57,8 @@ const moreItems = [
     description: (
       <p>
         A forum site that aims to encourage rational thought. I haven&apos;t
-        much engaged with it, so I can&apos;t speak to any issues. But it surely
-        full of ideas.
+        much engaged with it, so I can&apos;t speak to any issues. But it is
+        surely full of ideas.
       </p>
     ),
   },

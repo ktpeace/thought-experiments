@@ -113,8 +113,8 @@ const experimentData: Record<string, ExperimentData> = {
     title: "The Life You Can Save",
     description: [
       `Running to catch a train to work or school, you see a small child alone in a pond. His head continually drops below the water, and he is beginning to splash desperately in attempts to reach the shore.`,
-      `If you don't wade in and rescue him, he seems likely to drown. It would be safe and easy, but your new shoes and pants would get wet and muddy. You might even miss your train and be late for work. What should you do?`,
-      `WAIT! The true question is not whether you should help the child, to which nearly everyone says yes. Every day on Earth, people who are doing OK spend money on non-essential items, while some are suffering and dying in far worse conditions.`,
+      `If you don't wade in and rescue him, he seems likely to drown. It would be safe and easy, but your new shoes and pants would get wet and muddy. You might even miss your train and be late for work. What should you do...`,
+      `HOLD UP! The true question is not whether you should help the child, to which nearly everyone says yes. Every day on Earth, people who are doing OK spend money on non-essential items, while some are suffering and dying in far worse conditions.`,
     ],
     question: `Is neglecting to help the far less fortunate or even dying anywhere on Earth, assuming you could help with relatively small efforts, similar to neglecting to save the drowning child?`,
     alt: "child in a pond yelling and holding out their arms",
