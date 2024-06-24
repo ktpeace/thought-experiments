@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import experimentData from "./experimentData";
+import { LeftArrow, RightArrow } from "./icons/heroIcons";
 
 const SlidingImages = () => {
   // Images
@@ -77,20 +78,7 @@ const SlidingImages = () => {
           } ${!disableLeft && "betterhover:hover:text-white"}`}
           disabled={disableLeft}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5"
-            />
-          </svg>
+          <LeftArrow />
         </button>
         {/* Images */}
         <div
@@ -126,20 +114,7 @@ const SlidingImages = () => {
           } ${!disableRight && "betterhover:hover:text-white"}`}
           disabled={disableRight}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5"
-            />
-          </svg>
+          <RightArrow />
         </button>
       </div>
     </div>
