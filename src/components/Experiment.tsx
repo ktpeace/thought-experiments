@@ -1,6 +1,7 @@
 "use client";
 import experimentData, { ExperimentData } from "@/components/experimentData";
 import NextImage from "@/utils/NextImage";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -40,11 +41,11 @@ const Experiment = () => {
           </p>
         </div>
         <div className="w-full mb-8 flex justify-center">
-          <NextImage
+          <Image
             src={`/media/experiment-images/${id}.jpg`}
+            width="1024"
+            height="1024"
             alt={experiment.alt}
-            width="w-80" // 320px
-            height="h-80"
           />
         </div>
         <div className="mb-10 flex flex-col gap-6 text-xl">

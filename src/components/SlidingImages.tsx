@@ -1,7 +1,8 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
 import experimentData from "./experimentData";
 import { LeftArrow, RightArrow } from "./icons/heroIcons";
 
@@ -73,9 +74,11 @@ const SlidingImages = () => {
         {/* Left button */}
         <button
           onClick={scrollLeft}
-          className={`px-4 text-neutral-400 ${
-            disableLeft ? "opacity-30" : "opacity-100"
-          } ${!disableLeft && "betterhover:hover:text-white"}`}
+          className={clsx(`px-4 text-neutral-400 `, {
+            "opacity-30": disableLeft,
+            "opacity-100": disableRight,
+            "betterhover:hover:text-white": !disableLeft,
+          })}
           disabled={disableLeft}
         >
           <LeftArrow />
