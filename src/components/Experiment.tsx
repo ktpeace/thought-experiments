@@ -1,24 +1,127 @@
 "use client";
-import experimentData, { ExperimentData } from "@/components/experimentData";
-import NextImage from "@/utils/NextImage";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import Image from "next/image";
+import { Montserrat } from "next/font/google";
+import { ExperimentData, Votes } from "@/types";
+import { Spinner } from "./icons/svgIcons";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 const Experiment = () => {
   const pathname = usePathname();
-  const id = pathname.split("/").pop();
+  const slug = pathname.split("/").pop();
+  const [experiment, setExperiment] = useState<ExperimentData>(
+    {} as ExperimentData
+  );
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
   const [choice, setChoice] = useState("");
+  const [votes, setVotes] = useState<Votes>({} as Votes);
+  const [hasPastVote, setHasPastVote] = useState(false);
 
-  if (typeof id !== "string" || !(id in experimentData)) {
-    return <p>Experiment not found</p>;
+  // Fetch & set experiments data
+  async function callFetchExperiments() {
+    try {
+      if (!slug) {
+        setError("Experiment missing from URL.");
+      }
+      // Fetch experiment
+      const response = await fetch(`/api/experiments?slug=${slug}`);
+      const data = await response.json();
+      setExperiment(data.experiments[0]);
+      // If user has voted on this before, get their choice & vote tallies
+      const pastChoice = slug && localStorage.getItem(slug);
+      if (pastChoice) {
+        const response = await fetch(`/api/experiment-vote?slug=${slug}`);
+        const data = await response.json();
+        setVotes(data.votes);
+        setHasPastVote(true);
+        setChoice(pastChoice);
+      }
+    } catch (err) {
+      console.error(err);
+      setError("An error occurred fetching the experiment.");
+    } finally {
+      setLoading(false);
+    }
   }
 
-  const experiment: ExperimentData = experimentData[id];
+  useEffect(() => {
+    callFetchExperiments();
+  }, [slug]);
 
-  function handleClick(clickChoice: string) {
-    setChoice(clickChoice);
+  // Return loading spinner if experiment fetch incomplete
+  if (loading) {
+    return (
+      <div className="h-[65vh] flex justify-center items-center">
+        <Spinner />
+      </div>
+    );
+  }
+
+  // Return error message
+  if (error) {
+    return (
+      <div className="h-[65vh] flex justify-center items-center">{error}</div>
+    );
+  }
+
+  // Record user vote & get latest vote tallies
+  async function handleVote(vote: string) {
+    try {
+      const experimentId = experiment.id;
+
+      const response = await fetch("/api/experiment-vote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ experimentId, vote }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to record vote");
+      }
+
+      const data = await response.json();
+      console.log(data);
+
+      slug && localStorage.setItem(slug, vote);
+      setVotes(data.updatedVotes);
+      setChoice(vote);
+    } catch (err) {
+      console.error(err);
+      setError("Error recording vote.");
+    }
+  }
+
+  function compareToOthers() {
+    // If votes are equal
+    const isEqual = votes.yes_votes === votes.no_votes;
+    if (isEqual) {
+      return "You've brought harmony to the universe!";
+    }
+    // If user is only voter
+    const total = votes.yes_votes + votes.no_votes;
+    if (total === 1) {
+      return "You're the first to vote.";
+    }
+    // If user is in majority
+    const yesMore = votes.yes_votes > votes.no_votes;
+    if ((yesMore && choice === "yes") || (!yesMore && choice === "no")) {
+      return "You're in good company.";
+    } else {
+      // If user is in minority
+      return "You're in the minority on this one.";
+    }
+  }
+
+  function getPercent(num: number) {
+    if (num === 0) return num;
+    const totalVotes = votes.yes_votes + votes.no_votes;
+    return Math.round((num / totalVotes) * 100);
   }
 
   return (
@@ -30,7 +133,7 @@ const Experiment = () => {
           </h2>
           <p>
             <Link
-              href={experiment.originLink}
+              href={experiment.origin_link}
               className="underline text-pool-300"
               target="_blank"
               rel="noopener noreferrer"
@@ -40,44 +143,75 @@ const Experiment = () => {
             : {experiment.origin}
           </p>
         </div>
-        <div className="w-full mb-8 flex justify-center">
+        <div className="w-full sm:w-9/12 mb-8 flex justify-center">
           <Image
-            src={`/media/experiment-images/${id}.jpg`}
+            src={experiment.image_url}
             width="1024"
             height="1024"
             alt={experiment.alt}
           />
         </div>
         <div className="mb-10 flex flex-col gap-6 text-xl">
-          {experiment.description.map((paragraph, i) => {
-            // If it's the last paragraph, append the question in bold
-            if (i === experiment.description.length - 1) {
-              return (
-                <p key={i}>
-                  {paragraph} <strong>{experiment.question}</strong>
-                </p>
-              );
-            } else {
-              return <p key={i}>{paragraph}</p>;
-            }
-          })}
+          <p>{experiment.description}</p>
+          <p className="font-semibold">{experiment.question}</p>
         </div>
         <div className="w-full flex justify-center gap-16 mb-24">
-          {choice && (
-            <p className="w-full p-2 text-lg bg-pool-800 rounded">
-              Well bully for you, but this doesn&apos;t do anything yet.
-            </p>
+          {votes.yes_votes !== null && votes.yes_votes !== undefined && (
+            <div className="w-full p-2 text-xl flex flex-col gap-8">
+              <div
+                className={`relative w-full py-2 px-4 flex justify-center text-2xl italic rounded bg-pool-500/[.15]`}
+              >
+                <span className="capitalize">{choice}</span>.
+              </div>
+              <p className="text-center">
+                {!hasPastVote && (
+                  <>
+                    Is that so? {compareToOthers()}{" "}
+                    {votes.yes_votes + votes.no_votes === 1
+                      ? "Come back another time to see what others decide."
+                      : "Here's how others voted:"}
+                  </>
+                )}
+                {hasPastVote && (
+                  <>
+                    You've already voted! {compareToOthers()} Here's the latest
+                    total vote count:
+                  </>
+                )}
+              </p>
+              {/* Vote percents */}
+              <div className="w-full flex justify-between gap-8">
+                <div className="flex-1 p-4 flex justify-center items-center gap-2 bg-dusky-400 rounded ">
+                  <span>YES:</span>{" "}
+                  <div>
+                    <span className={`${montserrat.className} text-lg`}>
+                      {getPercent(votes.yes_votes)}
+                    </span>
+                    %
+                  </div>
+                </div>
+                <div className="flex-1 p-4 flex justify-center items-center gap-2 bg-dusky-400 rounded">
+                  <span>NO:</span>{" "}
+                  <div>
+                    <span className={`${montserrat.className} text-lg`}>
+                      {getPercent(votes.no_votes)}
+                    </span>
+                    %
+                  </div>
+                </div>
+              </div>
+            </div>
           )}
           {!choice && (
             <>
               <button
-                onClick={() => handleClick("no")}
+                onClick={() => handleVote("no")}
                 className="text-neutral-200 font-semibold py-2 px-4 border-2 border-neutral-700 hover:border-neutral-800 hover:bg-neutral-700/25 rounded uppercase"
               >
                 No
               </button>
               <button
-                onClick={() => handleClick("yes")}
+                onClick={() => handleVote("yes")}
                 className="text-neutral-200 font-semibold py-2 px-4 border-2 border-neutral-700 hover:border-neutral-800 hover:bg-neutral-700/25 rounded uppercase"
               >
                 Yes

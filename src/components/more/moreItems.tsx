@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CakeIcon, ChatIcon, VideoIcon } from "../icons/heroIcons";
+import { CakeIcon, ChatIcon, SpeakerIcon, VideoIcon } from "../icons/svgIcons";
 
 const moreItems = [
   {
@@ -51,19 +51,6 @@ const moreItems = [
     ),
   },
   {
-    title: "The Conspiracy Test",
-    href: "https://theconspiracytest.org/",
-    icon: <CakeIcon />,
-    description: (
-      <p>
-        An immersive in-browser game that tests your ability to think your way
-        out of real conspiracy theories. (This is by School of Thought, the same
-        as the logical fallacy site above. Check out their website for more
-        stuff like this.)
-      </p>
-    ),
-  },
-  {
     title: "Less Wrong",
     href: "https://www.lesswrong.com/leastwrong",
     icon: <ChatIcon />,
@@ -73,6 +60,14 @@ const moreItems = [
         much engaged with it, so I can&apos;t speak to any issues. But it is
         surely full of ideas.
       </p>
+    ),
+  },
+  {
+    title: "Podcast Review: Best Podcasts 2024",
+    href: "https://podcastreview.org/list/best-philosophy-podcasts",
+    icon: <SpeakerIcon />,
+    description: (
+      <p>Podcast Review's March 2024 choice of great philosophy podcasts.</p>
     ),
   },
   {

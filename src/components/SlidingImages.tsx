@@ -3,18 +3,36 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
-import experimentData from "./experimentData";
-import { LeftArrow, RightArrow } from "./icons/heroIcons";
+import { LeftArrow, RightArrow } from "./icons/svgIcons";
+import { ExperimentData } from "@/types";
 
 const SlidingImages = () => {
-  // Images
-  const imagesPath = "/media/experiment-images/";
-  const imagesExtension = ".jpg";
-  const [imageNames, setImageNames] = useState<string[][]>([]);
   // Scrolling
   const scrollRef = useRef<HTMLDivElement>(null);
   const [disableLeft, setDisableLeft] = useState(true);
   const [disableRight, setDisableRight] = useState(false);
+  // Data
+  const PAGE_SIZE = 20;
+  const [pageNumber, setPageNumber] = useState(1);
+  const [experiments, setExperiments] = useState<ExperimentData[]>([]);
+
+  // Fetch & set experiments data
+  async function callFetchExperiments() {
+    try {
+      const response = await fetch(
+        `/api/experiments?pageSize=${PAGE_SIZE}&pageNumber=${pageNumber}`
+      );
+      const data = await response.json();
+      console.log(data.experiments);
+      setExperiments([...experiments, ...data.experiments]);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  useEffect(() => {
+    callFetchExperiments();
+  }, []);
 
   // Disable right or left button if end of data on that side
   const checkScroll = () => {
@@ -39,18 +57,6 @@ const SlidingImages = () => {
     }
   };
 
-  // Set image names for hover titles & alts
-  useEffect(() => {
-    if (experimentData) {
-      let tempImageNames: [string, string][] = [];
-      for (let [key, value] of Object.entries(experimentData)) {
-        let pair: [string, string] = [key, value.title];
-        tempImageNames.push(pair);
-      }
-      setImageNames(tempImageNames);
-    }
-  }, []);
-
   // Check scroll potential on render or resize
   useEffect(() => {
     const current = scrollRef.current;
@@ -63,10 +69,10 @@ const SlidingImages = () => {
         window.removeEventListener("resize", checkScroll);
       };
     }
-  }, [imageNames]);
+  }, [experiments]);
 
-  // Image names are the URL names so no point if missing
-  if (imageNames.length === 0) return null;
+  // Don't show this if no experiments
+  if (experiments.length === 0) return null;
 
   return (
     <div className="fixed w-screen bottom-0 left-0 right-0 flex justify-between px-12 pt-4 pb-4 bg-transparent">
@@ -89,18 +95,19 @@ const SlidingImages = () => {
           className="flex overflow-x-auto space-x-4 gap-6"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {imageNames.map(([name, title], index) => (
-            <Link key={name} href={`/experiments/${name}`} title={title}>
-              <div
-                key={index}
-                className="w-8 h-8 md:w-16 md:h-16 flex-shrink-0"
-              >
+          {experiments.map((experiment) => (
+            <Link
+              key={experiment.id}
+              href={`/experiments/${experiment.slug}`}
+              title={experiment.title}
+            >
+              <div className="w-8 h-8 md:w-16 md:h-16 flex-shrink-0">
                 <div
                   className={`w-full h-full relative overflow-hidden rounded-full betterhover:hover:opacity-50`}
                 >
                   <Image
-                    src={`${imagesPath}${name}${imagesExtension}`}
-                    alt={title}
+                    src={experiment.image_url}
+                    alt={`${experiment.title} in delicate anime style`}
                     className="object-cover"
                     fill
                   />
