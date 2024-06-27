@@ -22,33 +22,32 @@ const Experiment = () => {
   const [hasPastVote, setHasPastVote] = useState(false);
 
   // Fetch & set experiments data
-  async function callFetchExperiments() {
-    try {
-      if (!slug) {
-        setError("Experiment missing from URL.");
-      }
-      // Fetch experiment
-      const response = await fetch(`/api/experiments?slug=${slug}`);
-      const data = await response.json();
-      setExperiment(data.experiments[0]);
-      // If user has voted on this before, get their choice & vote tallies
-      const pastChoice = slug && localStorage.getItem(slug);
-      if (pastChoice) {
-        const response = await fetch(`/api/experiment-vote?slug=${slug}`);
-        const data = await response.json();
-        setVotes(data.votes);
-        setHasPastVote(true);
-        setChoice(pastChoice);
-      }
-    } catch (err) {
-      console.error(err);
-      setError("An error occurred fetching the experiment.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
   useEffect(() => {
+    async function callFetchExperiments() {
+      try {
+        if (!slug) {
+          setError("Experiment missing from URL.");
+        }
+        // Fetch experiment
+        const response = await fetch(`/api/experiments?slug=${slug}`);
+        const data = await response.json();
+        setExperiment(data.experiments[0]);
+        // If user has voted on this before, get their choice & vote tallies
+        const pastChoice = slug && localStorage.getItem(slug);
+        if (pastChoice) {
+          const response = await fetch(`/api/experiment-vote?slug=${slug}`);
+          const data = await response.json();
+          setVotes(data.votes);
+          setHasPastVote(true);
+          setChoice(pastChoice);
+        }
+      } catch (err) {
+        console.error(err);
+        setError("An error occurred fetching the experiment.");
+      } finally {
+        setLoading(false);
+      }
+    }
     callFetchExperiments();
   }, [slug]);
 
@@ -174,8 +173,8 @@ const Experiment = () => {
                 )}
                 {hasPastVote && (
                   <>
-                    You've already voted! {compareToOthers()} Here's the latest
-                    total vote count:
+                    You&apos;ve already voted! {compareToOthers()} Here&apos;s
+                    the latest total vote count:
                   </>
                 )}
               </p>

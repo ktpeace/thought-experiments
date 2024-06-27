@@ -8,21 +8,21 @@ export default function ExperimentsPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Fetch a random slug
-  async function fetchRandomExperiment() {
-    try {
-      const response = await fetch(`/api/experiment-random?slug=${slug}`);
-      const data = await response.json();
-      setSlug(data.slug);
-    } catch (err) {
-      console.error(err);
-      setError("An error occurred.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
   useEffect(() => {
+    // Fetch a random slug
+    async function fetchRandomExperiment() {
+      try {
+        const response = await fetch(`/api/experiment-random`);
+        const data = await response.json();
+        setSlug(data.slug);
+      } catch (err) {
+        console.error(err);
+        setError("An error occurred.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
     fetchRandomExperiment();
   }, []);
 

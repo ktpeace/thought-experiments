@@ -17,22 +17,22 @@ const SlidingImages = () => {
   const [experiments, setExperiments] = useState<ExperimentData[]>([]);
 
   // Fetch & set experiments data
-  async function callFetchExperiments() {
-    try {
-      const response = await fetch(
-        `/api/experiments?pageSize=${PAGE_SIZE}&pageNumber=${pageNumber}`
-      );
-      const data = await response.json();
-      console.log(data.experiments);
-      setExperiments([...experiments, ...data.experiments]);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
   useEffect(() => {
+    async function callFetchExperiments() {
+      try {
+        const response = await fetch(
+          `/api/experiments?pageSize=${PAGE_SIZE}&pageNumber=${pageNumber}`
+        );
+        const data = await response.json();
+        console.log(data.experiments);
+        setExperiments((prev) => [...prev, ...data.experiments]);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
     callFetchExperiments();
-  }, []);
+  }, [pageNumber]);
 
   // Disable right or left button if end of data on that side
   const checkScroll = () => {

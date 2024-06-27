@@ -67,7 +67,9 @@ const moreItems = [
     href: "https://podcastreview.org/list/best-philosophy-podcasts",
     icon: <SpeakerIcon />,
     description: (
-      <p>Podcast Review's March 2024 choice of great philosophy podcasts.</p>
+      <p>
+        Podcast Review&apos;s March 2024 choice of great philosophy podcasts.
+      </p>
     ),
   },
   {
