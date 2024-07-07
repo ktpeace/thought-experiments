@@ -23,8 +23,10 @@ const About = () => {
         <div className="p-6 flex-1 flex flex-col gap-2 border border-dusky-400 rounded-lg">
           <h3 className="text-2xl text-center">✒️ Contact</h3>
           <p>
-            Ideas? Polite criticisms? Lucrative offers? Contact me at the email
-            I am going to put here.
+            Ideas? Polite criticisms? Lucrative offers? Contact me at
+            <a href="mailto:thought_experiment_explorer@proton.me">
+              thought_experiment_explorer@proton.me
+            </a>
           </p>
         </div>
         <div className="p-6 flex-1 flex flex-col justify-center gap-2 border border-dusky-400 rounded-lg">

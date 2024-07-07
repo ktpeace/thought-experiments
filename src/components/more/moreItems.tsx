@@ -63,7 +63,7 @@ const moreItems = [
     ),
   },
   {
-    title: "Podcast Review: Best Podcasts 2024",
+    title: "Podcast Review: Best Philosophy Podcasts 2024",
     href: "https://podcastreview.org/list/best-philosophy-podcasts",
     icon: <SpeakerIcon />,
     description: (

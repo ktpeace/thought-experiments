@@ -31,7 +31,7 @@ const SlidingImages = () => {
       }
     }
 
-    callFetchExperiments();
+    experiments.length === 0 && callFetchExperiments();
   }, [pageNumber]);
 
   // Disable right or left button if end of data on that side

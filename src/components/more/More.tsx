@@ -1,5 +1,6 @@
 import Link from "next/link";
 import moreItems from "./moreItems";
+import { MailIcon } from "../icons/svgIcons";
 
 const More = () => {
   return (
@@ -27,9 +28,14 @@ const More = () => {
           );
         })}
       </ul>
-      <p>
-        Have more suggestions? Let me know! ⬅ contact will go here i done told
-        ya in About this site ain&apos;t done
+      <p className="mt-4 p-4 flex items-center gap-2 text-2xl rounded bg-dusky-600">
+        <MailIcon /> Have more suggestions? Let me know at{" "}
+        <a
+          href="mailto:thought_experiment_explorer@proton.me"
+          className="text-pool-500 font-medium"
+        >
+          thought_experiment_explorer@proton.me
+        </a>
       </p>
     </div>
   );
