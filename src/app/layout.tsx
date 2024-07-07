@@ -14,10 +14,6 @@ const cardo = Cardo({
 export const metadata: Metadata = {
   title: "Thought Experiment Explorer",
   description: "Explore & vote on famous philosophical thought experiments",
-  openGraph: {
-    images:
-      "https://thought-experiments-hvlq0r3ro-kat-projects.vercel.app/og-image.jpg",
-  },
 };
 
 export default function RootLayout({
