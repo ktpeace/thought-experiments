@@ -41,6 +41,27 @@ body {
   @apply w-72 px-4 py-1 rounded-lg bg-pool-700 text-white hover:bg-pool-600 focus:outline-none focus:ring-2 focus:ring-pool-700 focus:ring-opacity-50 text-xl text-center;
 }
 
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+  background: #293038;
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: #51585f;
+  border-radius: 5px;
+}
+
+/* Scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #5f6870;
+}
+
 /* @layer utilities {
   .text-balance {
     text-wrap: balance;
