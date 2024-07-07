@@ -15,7 +15,7 @@ const About = () => {
           Future plans include adding more thought experiments, making a
           separate page to search/filter experiments, adding logins to allow for
           more reliable voting and profile generation, etc. Contact me if there
-          is a feature you'd like to see.
+          is a feature you&apos;d like to see.
         </p>
         <p>I generated the images using Midjourney.</p>
       </section>
