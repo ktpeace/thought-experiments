@@ -12,6 +12,7 @@ const cardo = Cardo({
 
 // Metadata
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thought-experiment-explorer.vercel.app"),
   title: "Thought Experiment Explorer",
   description: "Explore & vote on famous philosophical thought experiments",
 };
