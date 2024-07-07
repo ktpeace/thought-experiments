@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import NextImage from "@/utils/NextImage";
 import Link from "next/link";
 import OptionExtra from "./OptionExtra";
 import ChoiceText from "./ChoiceText";
@@ -21,12 +20,13 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
         dilemmas and ask you to make a choice.
       </p>
       <div className="w-full flex flex-col md:flex-row justify-center items-center gap-16">
-        <div className={`w-80 h-80 relative`}>
+        <div>
           <Image
             src="/media/home/trolley-problem.jpg"
             alt="delicate drawn-style trolley car at night"
-            fill
-            className="object-contain rounded-lg"
+            width="1024"
+            height="1024"
+            className="w-80 h-80 rounded"
           />
         </div>
       </div>
@@ -41,7 +41,13 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
       </p>
       <p>Well, my dog can do that (and a very fine dog she is).</p>
       <div className="w-full flex justify-center">
-        <NextImage src="/media/home/my-dog.jpg" alt="happy dog" />
+        <Image
+          src="/media/home/my-dog.jpg"
+          alt="happy dog"
+          width="1024"
+          height="1024"
+          className="w-80 h-80 rounded"
+        />
       </div>
       <p>
         It&apos;s better to live an examined life and{" "}
