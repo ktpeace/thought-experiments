@@ -20,7 +20,7 @@ const About = () => {
       </section>
       {/* Contact / Donate */}
       <section className="flex flex-col lg:flex-row justify-between gap-8">
-        <div className="p-6 flex-1 flex flex-col gap-2 border bg-dusky-100 dark:bg-inherit bg- dark:border-dusky-400 rounded-lg">
+        <div className="p-6 flex-1 flex flex-col gap-2 border bg-dusky-100 dark:bg-dusky-400 dark:bg-opacity-30 dark:border-dusky-400 rounded-lg">
           <h3 className="text-2xl text-center">✒️ Contact</h3>
           <p>
             Ideas? Polite criticisms? A job? Contact me at{" "}
@@ -32,7 +32,7 @@ const About = () => {
             </a>
           </p>
         </div>
-        <div className="p-6 flex-1 flex flex-col justify-center gap-2 border bg-dusky-100 dark:bg-inherit dark:border-dusky-400 rounded-lg">
+        <div className="p-6 flex-1 flex flex-col justify-center gap-2 border bg-dusky-100 dark:bg-dusky-400 dark:bg-opacity-30 dark:border-dusky-400 rounded-lg">
           <h3 className="text-2xl text-center">☕️ Donate</h3>
           <p>
             Enjoying the site? Yay! Buy me a cup of coffee and

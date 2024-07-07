@@ -5,7 +5,7 @@ import NavbarMenu from "./NavbarMenu";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 w-full h-12 px-4 z-50 flex justify-between items-center bg-white border-b dark:bg-dusky-800">
+    <nav className="fixed top-0 w-full h-12 px-4 z-50 flex justify-between items-center bg-white border-b dark:border-b-0 dark:bg-dusky-800">
       {/* Logo & "Thought Experiment Explorer"  */}
       <Link
         href="/"
@@ -24,7 +24,7 @@ const Navbar = () => {
       </Link>
 
       {/* Light/Dark & Hamburger */}
-      <div className="flex gap-6 items-center">
+      <div className="flex gap-6 items-center opacity-100">
         <ThemeToggler />
         <NavbarMenu />
       </div>

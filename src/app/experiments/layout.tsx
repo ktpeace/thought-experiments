@@ -9,7 +9,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   //   const currentPath = router.pathname;
 
   return (
-    <div className="mt-8 mb-12 px-8 xl:px-24 flex flex-col justify-center items-center">
+    <div className="mt-8 mb-12 px-4 sm:px-8 xl:px-24 flex flex-col justify-center items-center">
       {/* <nav>
         <ul className={styles.navList}>
           {menuItems.map((item) => (

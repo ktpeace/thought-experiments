@@ -18,7 +18,7 @@ const More = () => {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-pool-500 font-semibold"
+                className="flex items-center gap-2 text-pool-500"
               >
                 {item.icon}
                 <h3 className="text-2xl">{item.title}</h3>

@@ -23,7 +23,7 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
       <div className="w-full flex flex-col md:flex-row justify-center items-center gap-16">
         <div className={`w-80 h-80 relative`}>
           <Image
-            src="/media/experiment-images/trolley-problem.jpg"
+            src="/media/home/trolley-problem.jpg"
             alt="delicate drawn-style trolley car at night"
             fill
             className="object-contain rounded-lg"
@@ -50,7 +50,7 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
 
       {/* Buttons for yes/no */}
       {isYes === null && (
-        <div className="w-full my-16 flex flex-col md:flex-row justify-center gap-16">
+        <div className="w-full my-8 flex flex-col md:flex-row justify-center items-center gap-16">
           <button className="clean-button" onClick={() => setIsYes(true)}>
             Yes
           </button>
@@ -77,7 +77,7 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
           )}
           {/* Buttons if extra text not yet shown */}
           {!isExtraPicked && !isExtra && (
-            <div className="w-full my-16 flex flex-col md:flex-row justify-center gap-16">
+            <div className="w-full my-8 flex flex-col md:flex-row justify-center items-center gap-16">
               <button className="clean-button" onClick={() => setIsExtra(true)}>
                 {choiceText}
               </button>

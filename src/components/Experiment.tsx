@@ -124,7 +124,7 @@ const Experiment = () => {
   }
 
   return (
-    <div className="md:max-w-70p 2xl:max-w-50p dark:text-neutral-200">
+    <div className="md:max-w-70p 2xl:max-w-70p dark:text-neutral-200">
       <div className="w-full flex flex-col justify-center items-center">
         <div className="mb-8 w-full flex flex-col justify-center items-center">
           <h2 className="uppercase font-medium text-2xl text-center">
@@ -142,7 +142,7 @@ const Experiment = () => {
             : {experiment.origin}
           </p>
         </div>
-        <div className="w-full sm:w-9/12 mb-8 flex justify-center">
+        <div className="w-full sm:w-6/12 mb-8 flex justify-center">
           <Image
             src={experiment.image_url}
             width="1024"
