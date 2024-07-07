@@ -6,15 +6,16 @@ const About = () => {
       <h2 className="mb-4 self-center text-3xl">About</h2>
       <section className="mb-8 flex flex-col gap-4">
         <p>
-          Thought Experiment Explorer is a solo passion project made starting in
-          May 2024. My motivations are my personal interests, programming
-          practice, and belief that, especially today, we need to live more
-          examined lives. Or, as the wise might put it, &quot;know
-          thyself.&quot;
+          Thought Experiment Explorer is a solo passion project made around June
+          2024. My motivations are my personal interests, programming practice,
+          and belief that, especially today, we need to live more examined
+          lives. Or, as the wise might put it, &quot;know thyself.&quot;
         </p>
         <p>
-          If you somehow stumbled on this work in progress today, go away and
-          come back tomorrow.
+          Future plans include adding more thought experiments, making a
+          separate page to search/filter experiments, adding logins to allow for
+          more reliable voting and profile generation, etc. Contact me if there
+          is a feature you'd like to see.
         </p>
         <p>I generated the images using Midjourney.</p>
       </section>
