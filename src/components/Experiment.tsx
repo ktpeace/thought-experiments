@@ -124,7 +124,7 @@ const Experiment = () => {
   }
 
   return (
-    <div className="md:max-w-70p 2xl:max-w-50p text-neutral-200">
+    <div className="md:max-w-70p 2xl:max-w-50p dark:text-neutral-200">
       <div className="w-full flex flex-col justify-center items-center">
         <div className="mb-8 w-full flex flex-col justify-center items-center">
           <h2 className="uppercase font-medium text-2xl text-center">
@@ -133,7 +133,7 @@ const Experiment = () => {
           <p>
             <Link
               href={experiment.origin_link}
-              className="underline text-pool-300"
+              className="underline text-pool-600 dark:text-pool-300"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -148,10 +148,11 @@ const Experiment = () => {
             width="1024"
             height="1024"
             alt={experiment.alt}
+            className="rounded"
           />
         </div>
         <div className="mb-10 flex flex-col gap-6 text-xl">
-          <p>{experiment.description}</p>
+          <p className="whitespace-pre-wrap">{experiment.description}</p>
           <p className="font-semibold">{experiment.question}</p>
         </div>
         <div className="w-full flex justify-center gap-16 mb-24">
@@ -180,7 +181,7 @@ const Experiment = () => {
               </p>
               {/* Vote percents */}
               <div className="w-full flex justify-between gap-8">
-                <div className="flex-1 p-4 flex justify-center items-center gap-2 bg-dusky-400 rounded ">
+                <div className="flex-1 p-4 flex justify-center items-center gap-2 bg-dusky-100 dark:bg-dusky-400 rounded">
                   <span>YES:</span>{" "}
                   <div>
                     <span className={`${montserrat.className} text-lg`}>
@@ -189,7 +190,7 @@ const Experiment = () => {
                     %
                   </div>
                 </div>
-                <div className="flex-1 p-4 flex justify-center items-center gap-2 bg-dusky-400 rounded">
+                <div className="flex-1 p-4 flex justify-center items-center gap-2 bg-dusky-100 dark:bg-dusky-400 rounded">
                   <span>NO:</span>{" "}
                   <div>
                     <span className={`${montserrat.className} text-lg`}>
@@ -205,13 +206,13 @@ const Experiment = () => {
             <>
               <button
                 onClick={() => handleVote("no")}
-                className="text-neutral-200 font-semibold py-2 px-4 border-2 border-neutral-700 hover:border-neutral-800 hover:bg-neutral-700/25 rounded uppercase"
+                className="dark:text-neutral-200 font-semibold py-2 px-4 border-2 border-neutral-700 hover:border-neutral-800 hover:bg-neutral-700/25 rounded uppercase"
               >
                 No
               </button>
               <button
                 onClick={() => handleVote("yes")}
-                className="text-neutral-200 font-semibold py-2 px-4 border-2 border-neutral-700 hover:border-neutral-800 hover:bg-neutral-700/25 rounded uppercase"
+                className="dark:text-neutral-200 font-semibold py-2 px-4 border-2 border-neutral-700 hover:border-neutral-800 hover:bg-neutral-700/25 rounded uppercase"
               >
                 Yes
               </button>

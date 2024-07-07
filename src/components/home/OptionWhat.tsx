@@ -21,14 +21,6 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
         dilemmas and ask you to make a choice.
       </p>
       <div className="w-full flex flex-col md:flex-row justify-center items-center gap-16">
-        {/* <div className={`w-80 h-80 relative`}>
-          <Image
-            src="/media/home/trolley-yell-3.jpg"
-            alt="concerned man"
-            fill
-            className="object-contain rounded-lg"
-          />
-        </div> */}
         <div className={`w-80 h-80 relative`}>
           <Image
             src="/media/experiment-images/trolley-problem.jpg"
@@ -37,10 +29,6 @@ const OptionWhat = ({ isExtraPicked }: { isExtraPicked: boolean }) => {
             className="object-contain rounded-lg"
           />
         </div>
-        {/* <NextImage
-          src="/media/experiment-images/trolley-problem.jpg"
-          alt="delicate drawn-style trolley car"
-        /> */}
       </div>
       <p>
         The choices you make may surprise you, and considering an experiment may

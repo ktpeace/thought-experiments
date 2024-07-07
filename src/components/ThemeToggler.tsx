@@ -7,7 +7,7 @@ export default function ThemeToggler() {
 
   return (
     <button
-      className="opacity-30 cursor-pointer betterhover:hover:opacity-70"
+      className="dark:opacity-30 cursor-pointer betterhover:hover:opacity-70"
       title={`switch to ${theme === "dark" ? "light" : "dark"} mode`}
       onClick={toggleTheme}
     >

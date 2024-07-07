@@ -39,7 +39,7 @@ const NavbarMenu = () => {
       {/* Hamburger Icon */}
       <button
         id="menu-btn"
-        className="opacity-30 block focus:outline-none"
+        className="dark:opacity-30 block focus:outline-none"
         onClick={toggleMenu}
         aria-label="Open Menu"
       >
@@ -51,7 +51,7 @@ const NavbarMenu = () => {
         id="menu"
         className={`${
           isOpen ? "block" : "hidden"
-        } absolute z-10 top-11 right-2 p-2 shadow-lg rounded-lg bg-dusky-800`}
+        } absolute z-10 top-11 right-2 p-2 shadow-lg rounded-lg dark:bg-dusky-800`}
       >
         <ul>
           {linkItems.map((pageName) => {
@@ -59,7 +59,7 @@ const NavbarMenu = () => {
               <li key={pageName}>
                 <Link
                   href={`/${pageName.toLowerCase()}`}
-                  className="block w-full h-full p-2 hover:bg-dusky-600 rounded"
+                  className="block w-full h-full p-2 dark:betterhover:hover:bg-dusky-600 rounded"
                   onClick={() => setIsOpen(false)}
                 >
                   {pageName}

@@ -14,6 +14,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "selector",
   theme: {
     extend: {
       colors: {
@@ -25,9 +26,12 @@ const config: Config = {
         "pool-700": "#217378",
         "pool-800": "#18555A",
         "pool-900": "#0F373C",
+        "dusky-100": "#f1f8fe",
+        "dusky-200": "#e0e8f0",
         "dusky-300": "#393e43",
         "dusky-400": "#293038",
         "dusky-600": "#1e2529", // nearly black
+        "dusky-700": "#191d22", // background
         "dusky-800": "#0d1012",
       },
       backgroundImage: {

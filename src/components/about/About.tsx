@@ -20,10 +20,10 @@ const About = () => {
       </section>
       {/* Contact / Donate */}
       <section className="flex flex-col lg:flex-row justify-between gap-8">
-        <div className="p-6 flex-1 flex flex-col gap-2 border border-dusky-400 rounded-lg">
+        <div className="p-6 flex-1 flex flex-col gap-2 border bg-dusky-100 dark:bg-inherit bg- dark:border-dusky-400 rounded-lg">
           <h3 className="text-2xl text-center">✒️ Contact</h3>
           <p>
-            Ideas? Polite criticisms? Lucrative offers? Contact me at{" "}
+            Ideas? Polite criticisms? A job? Contact me at{" "}
             <a
               href="mailto:thought_experiment_explorer@proton.me"
               className="text-pool-500 font-medium"
@@ -32,14 +32,16 @@ const About = () => {
             </a>
           </p>
         </div>
-        <div className="p-6 flex-1 flex flex-col justify-center gap-2 border border-dusky-400 rounded-lg">
+        <div className="p-6 flex-1 flex flex-col justify-center gap-2 border bg-dusky-100 dark:bg-inherit dark:border-dusky-400 rounded-lg">
           <h3 className="text-2xl text-center">☕️ Donate</h3>
           <p>
-            Enjoying the site? I made it on my own freesy fer nuffin&apos;! I
-            sure would like to make more stuff. Buy me a cup of coffee and
+            Enjoying the site? Yay! Buy me a cup of coffee and
             &quot;coffee&quot; here means I need new socks.
           </p>
-          <p>25% of donations will go to charity.</p>
+          <p>
+            25% of donations will go to charity and this will persist even if I
+            inexplicably get a million smackers.
+          </p>
           <div>Patreon will go here</div>
         </div>
       </section>

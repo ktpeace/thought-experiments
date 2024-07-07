@@ -47,14 +47,16 @@ const SlidingImages = () => {
   // Scroll left
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
+      const scrollAmount = window.innerWidth * 0.5; // Scrolls 20% of the screen width
+      scrollRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     }
   };
 
   // Scroll right
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
+      const scrollAmount = window.innerWidth * 0.5; // Scrolls 20% of the screen width
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
 
@@ -77,14 +79,14 @@ const SlidingImages = () => {
 
   return (
     <div className="fixed w-screen bottom-0 left-0 right-0 flex justify-between px-12 pt-4 pb-4 bg-transparent">
-      <div className="fixed w-full bottom-0 left-0 right-0 flex justify-between py-2 bg-dusky-800">
+      <div className="fixed w-full bottom-0 left-0 right-0 flex justify-between py-2 bg-white border-t-2 dark:border-t-0 dark:bg-dusky-800">
         {/* Left button */}
         <button
           onClick={scrollLeft}
-          className={clsx(`px-4 text-neutral-400 `, {
+          className={clsx(`px-4 dark:text-neutral-400 `, {
             "opacity-30": disableLeft,
             "opacity-100": disableRight,
-            "betterhover:hover:text-white": !disableLeft,
+            "dark:betterhover:hover:text-white": !disableLeft,
           })}
           disabled={disableLeft}
         >
@@ -120,9 +122,9 @@ const SlidingImages = () => {
         {/* Right button */}
         <button
           onClick={scrollRight}
-          className={`px-4 text-neutral-400 ${
+          className={`px-4 dark:text-neutral-400 ${
             disableRight ? "opacity-30" : "opacity-100"
-          } ${!disableRight && "betterhover:hover:text-white"}`}
+          } ${!disableRight && "dark:betterhover:hover:text-white"}`}
           disabled={disableRight}
         >
           <RightArrow />

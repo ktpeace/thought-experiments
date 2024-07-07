@@ -27,7 +27,7 @@ const Welcome: React.FC<WelcomeProps> = ({ setIsWhat, setIsExtra }) => {
     <section className="w-full pt-12 pb-8 md:pb-16 mt-[-64px] min-h-screen-safe md:min-h-screen flex flex-col justify-between">
       <div className="h-16"></div>
       {/* Welcome text */}
-      <h2 className="mb-16 text-5xl md:text-6xl text-neutral-200 flex flex-col self-center">
+      <h2 className="mb-16 text-5xl md:text-6xl dark:text-neutral-200 flex flex-col self-center">
         <span className="text-pool-500">Welcome</span>
         <span>to Thought</span>
         <span>Experiment</span>

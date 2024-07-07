@@ -18,7 +18,7 @@ const More = () => {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-pool-500"
+                className="flex items-center gap-2 text-pool-500 font-semibold"
               >
                 {item.icon}
                 <h3 className="text-2xl">{item.title}</h3>
@@ -28,7 +28,7 @@ const More = () => {
           );
         })}
       </ul>
-      <p className="mt-4 p-4 flex items-center gap-2 text-xl rounded bg-dusky-600">
+      <p className="mt-4 p-4 flex items-center gap-2 text-xl rounded bg-dusky-100 dark:bg-dusky-600">
         <MailIcon /> Have more suggestions? Let me know at{" "}
         <a
           href="mailto:thought_experiment_explorer@proton.me"
