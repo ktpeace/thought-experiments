@@ -35,9 +35,9 @@ const About = () => {
         <div className="p-6 flex-1 flex flex-col justify-center gap-2 border border-dusky-400 rounded-lg">
           <h3 className="text-2xl text-center">☕️ Donate</h3>
           <p>
-            Enjoying the site? I made it on my own freesy fer nuffin&apos;! Buy
-            me a cup of coffee and &quot;coffee&quot; here means I need new
-            socks.
+            Enjoying the site? I made it on my own freesy fer nuffin&apos;! I
+            sure would like to make more stuff. Buy me a cup of coffee and
+            &quot;coffee&quot; here means I need new socks.
           </p>
           <p>25% of donations will go to charity.</p>
           <div>Patreon will go here</div>

@@ -28,7 +28,7 @@ const More = () => {
           );
         })}
       </ul>
-      <p className="mt-4 p-4 flex items-center gap-2 text-2xl rounded bg-dusky-600">
+      <p className="mt-4 p-4 flex items-center gap-2 text-xl rounded bg-dusky-600">
         <MailIcon /> Have more suggestions? Let me know at{" "}
         <a
           href="mailto:thought_experiment_explorer@proton.me"

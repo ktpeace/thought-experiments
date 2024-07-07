@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ThemeToggler from "./ThemeToggler";
 import NavbarMenu from "./NavbarMenu";
 import NextImage from "@/utils/NextImage";
 
@@ -8,7 +9,7 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full h-12 px-4 z-50 flex justify-between items-center bg-dusky-800 ">
       <Link
         href="/"
-        className="relative h-full opacity-30 flex items-center gap-2"
+        className="relative h-full opacity-30 betterhover:hover:opacity-70 flex items-center gap-2"
       >
         <Image
           src="/media/logo.png"
@@ -22,7 +23,12 @@ const Navbar = () => {
           Thought Experiment Explorer
         </p>
       </Link>
-      <NavbarMenu />
+
+      {/* Light/Dark & Hamburger */}
+      <div className="flex gap-6 items-center">
+        <ThemeToggler />
+        <NavbarMenu />
+      </div>
     </nav>
   );
 };

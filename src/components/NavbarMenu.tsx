@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Hamburger } from "./icons/svgIcons";
 
 const NavbarMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,24 +39,11 @@ const NavbarMenu = () => {
       {/* Hamburger Icon */}
       <button
         id="menu-btn"
-        className="opacity-30 p-5 block focus:outline-none"
+        className="opacity-30 block focus:outline-none"
         onClick={toggleMenu}
         aria-label="Open Menu"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
+        <Hamburger />
       </button>
 
       {/* Menu */}
@@ -63,7 +51,7 @@ const NavbarMenu = () => {
         id="menu"
         className={`${
           isOpen ? "block" : "hidden"
-        } absolute z-10 top-11 right-8 p-2 shadow-lg rounded-lg bg-dusky-800`}
+        } absolute z-10 top-11 right-2 p-2 shadow-lg rounded-lg bg-dusky-800`}
       >
         <ul>
           {linkItems.map((pageName) => {
