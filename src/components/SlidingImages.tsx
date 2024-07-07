@@ -31,7 +31,8 @@ const SlidingImages = () => {
       }
     }
 
-    experiments.length === 0 && callFetchExperiments();
+    experiments?.length === 0 && callFetchExperiments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumber]);
 
   // Disable right or left button if end of data on that side
