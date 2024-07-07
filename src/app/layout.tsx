@@ -14,6 +14,9 @@ const cardo = Cardo({
 export const metadata: Metadata = {
   title: "Thought Experiment Explorer",
   description: "Explore & vote on famous philosophical thought experiments",
+  openGraph: {
+    images: "/og-image.jpg",
+  },
 };
 
 export default function RootLayout({
