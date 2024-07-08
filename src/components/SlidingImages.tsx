@@ -5,8 +5,11 @@ import Link from "next/link";
 import clsx from "clsx";
 import { LeftArrow, RightArrow } from "./icons/svgIcons";
 import { ExperimentData } from "@/types";
+import { usePathname } from "next/navigation";
 
 const SlidingImages = () => {
+  const pathname = usePathname();
+  const slug = pathname.split("/").pop();
   // Scrolling
   const scrollRef = useRef<HTMLDivElement>(null);
   const [disableLeft, setDisableLeft] = useState(true);
@@ -103,10 +106,22 @@ const SlidingImages = () => {
               key={experiment.id}
               href={`/experiments/${experiment.slug}`}
               title={experiment.title}
+              onClick={(e) => {
+                if (slug === experiment.slug) {
+                  // don't do anything if already here
+                  e.preventDefault();
+                }
+              }}
+              className={`${slug === experiment.slug && "cursor-auto"}`}
             >
-              <div className="w-8 h-8 md:w-16 md:h-16 flex-shrink-0">
+              <div className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0">
                 <div
-                  className={`w-full h-full relative overflow-hidden rounded-full betterhover:hover:opacity-50`}
+                  className={`w-full h-full relative overflow-hidden rounded-full ${
+                    slug !== experiment.slug && "betterhover:hover:opacity-50"
+                  } ${
+                    slug === experiment.slug &&
+                    "border-4 border-pool-500 dark:border-pool-700"
+                  }`}
                 >
                   <Image
                     src={experiment.image_url}
