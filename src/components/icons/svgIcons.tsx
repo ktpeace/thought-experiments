@@ -6,7 +6,7 @@ export const Hamburger = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className="size-6 min-w-[1.5rem]"
     >
       <path
         strokeLinecap="round"
@@ -46,7 +46,7 @@ export const VideoIcon = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className="size-6 min-w-[1.5rem]"
     >
       <path
         strokeLinecap="round"
@@ -65,7 +65,7 @@ export const ChatIcon = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className="size-6 min-w-[1.5rem]"
     >
       <path
         strokeLinecap="round"
@@ -84,7 +84,7 @@ export const CakeIcon = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className="size-6 min-w-[1.5rem]"
     >
       <path
         strokeLinecap="round"
@@ -103,7 +103,7 @@ export const SpeakerIcon = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className="size-6 min-w-[1.5rem]"
     >
       <path
         strokeLinecap="round"
@@ -122,7 +122,7 @@ export const MailIcon = ({ className }: { className?: string }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={`size-6 ${className}`}
+      className={`size-6 min-w-[1.5rem] ${className}`}
     >
       <path
         strokeLinecap="round"
@@ -179,7 +179,7 @@ export const MoonIcon = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className="size-6 min-w-[1.5rem]"
     >
       <path
         strokeLinecap="round"
@@ -198,7 +198,7 @@ export const SunIcon = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className="size-6 min-w-[1.5rem]"
     >
       <path
         strokeLinecap="round"
@@ -217,7 +217,7 @@ export const ExternalLink = ({ className }: { className?: string }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={`size-6 ${className}`}
+      className={`size-6 min-w-[1.5rem] ${className}`}
     >
       <path
         strokeLinecap="round"
