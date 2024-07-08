@@ -32,7 +32,7 @@ const More = () => {
         <MailIcon /> Have more suggestions? Let me know at{" "}
         <a
           href="mailto:thought_experiment_explorer@proton.me"
-          className="text-pool-500 font-medium"
+          className="text-pool-500 font-medium break-words"
         >
           thought_experiment_explorer@proton.me
         </a>

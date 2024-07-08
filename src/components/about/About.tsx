@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { ExternalLink } from "../icons/svgIcons";
 
 const About = () => {
   return (
@@ -27,7 +29,7 @@ const About = () => {
             Ideas? Polite criticisms? A job? Contact me at{" "}
             <a
               href="mailto:thought_experiment_explorer@proton.me"
-              className="text-pool-500 font-medium"
+              className="text-pool-500 font-medium break-words"
             >
               thought_experiment_explorer@proton.me
             </a>
@@ -39,11 +41,20 @@ const About = () => {
             Enjoying the site? Yay! Buy me a cup of coffee and
             &quot;coffee&quot; here means I need new socks.
           </p>
-          <p>
+          <p className="italic opacity-80">
             25% of donations will go to charity and this will persist even if I
             inexplicably get a million smackers.
           </p>
-          <div>Patreon will go here</div>
+          <div className="w-full flex flex-col justify-center items-center">
+            <Link
+              href="https://ko-fi.com/minmi_drover"
+              className="flex gap-1 mt-4 inline-block w-full h-60 bg-cover bg-center bg-[url('/media/me-red.jpg')] text-center text-white font-medium rounded-lg shadow-md flex items-center justify-center hover:opacity-90"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ko-Fi <ExternalLink className="w-5 h-5" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>
