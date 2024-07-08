@@ -28,10 +28,10 @@ const About = () => {
           <p>
             Ideas? Polite criticisms? A job? Contact me at{" "}
             <a
-              href="mailto:thought_experiment_explorer@proton.me"
+              href="mailto:minmi_drover@proton.me"
               className="text-pool-500 font-medium break-words"
             >
-              thought_experiment_explorer@proton.me
+              minmi_drover@proton.me
             </a>
           </p>
         </div>

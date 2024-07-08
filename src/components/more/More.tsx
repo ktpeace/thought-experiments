@@ -31,10 +31,10 @@ const More = () => {
       <p className="mt-4 p-4 flex items-center gap-2 text-xl rounded bg-dusky-100 dark:bg-dusky-600">
         <MailIcon /> Have more suggestions? Let me know at{" "}
         <a
-          href="mailto:thought_experiment_explorer@proton.me"
+          href="mailto:minmi_drover@proton.me"
           className="text-pool-500 font-medium break-words"
         >
-          thought_experiment_explorer@proton.me
+          minmi_drover@proton.me
         </a>
       </p>
     </div>
