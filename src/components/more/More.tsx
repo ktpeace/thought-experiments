@@ -28,13 +28,13 @@ const More = () => {
           );
         })}
       </ul>
-      <p className="mt-4 p-4 flex items-center gap-2 text-xl rounded bg-dusky-100 dark:bg-dusky-600">
-        <MailIcon /> Have more suggestions? Let me know at{" "}
+      <p className="mt-4 p-4 flex flex-wrap items-center justify-center gap-2 text-xl rounded bg-dusky-100 dark:bg-dusky-600">
+        Have more suggestions? Let me know:
         <a
           href="mailto:minmi_drover@proton.me"
-          className="text-pool-500 font-medium break-words"
+          className="flex items-center gap-1 text-pool-500 font-medium break-words"
         >
-          minmi_drover@proton.me
+          <MailIcon className="text-pool-500" /> minmi_drover@proton.me
         </a>
       </p>
     </div>
