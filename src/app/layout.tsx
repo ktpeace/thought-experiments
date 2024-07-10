@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Cardo } from "next/font/google";
 import "./globals.css";
@@ -36,6 +37,8 @@ export default function RootLayout({
           <main className="min-h-screen-safe mt-12 flex flex-col items-center justify-between px-8 xl:px-24 dark:text-neutral-300">
             {children}
           </main>
+
+          <Analytics />
         </body>
       </ThemeProvider>
     </html>
