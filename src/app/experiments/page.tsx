@@ -1,47 +1,7 @@
-"use client";
-import { Spinner } from "@/components/icons/svgIcons";
-import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
+import Experiments from "@/components/experiments/Experiments";
 
-export default function ExperimentsPage() {
-  const [slug, setSlug] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true);
+const ExperimentsPage = () => {
+  return <Experiments />;
+};
 
-  useEffect(() => {
-    // Fetch a random slug
-    async function fetchRandomExperiment() {
-      try {
-        const response = await fetch(`/api/experiment-random`);
-        const data = await response.json();
-        setSlug(data.slug);
-      } catch (err) {
-        console.error(err);
-        setError("An error occurred.");
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchRandomExperiment();
-  }, []);
-
-  // Return loading spinner if experiment fetch incomplete
-  if (loading) {
-    return (
-      <div className="h-[65vh] flex justify-center items-center">
-        <Spinner />
-      </div>
-    );
-  }
-
-  // Return error message
-  if (error) {
-    return (
-      <div className="h-[65vh] flex justify-center items-center">{error}</div>
-    );
-  }
-
-  // Redirect to a random experiment page
-  slug && redirect(`/experiments/${slug}`);
-}
+export default ExperimentsPage;

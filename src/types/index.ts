@@ -10,6 +10,7 @@ export interface ExperimentData {
   no_votes: number;
   image_url: string;
   slug: string;
+  tags: string[];
 }
 
 export interface Votes {

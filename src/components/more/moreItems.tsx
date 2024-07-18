@@ -84,5 +84,11 @@ const moreItems = [
       </p>
     ),
   },
+  {
+    title: "Philosophy Experiments",
+    href: "https://www.philosophyexperiments.com",
+    icon: <CakeIcon />,
+    description: <p>A set of simple text-based philosophy games.</p>,
+  },
 ];
 export default moreItems;

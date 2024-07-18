@@ -13,12 +13,26 @@ export async function GET(request: Request) {
 
     if (slug) {
       result = await sql`
-      SELECT * FROM experiments WHERE slug = ${slug};
-    `;
+        SELECT
+          experiments.*,
+          COALESCE(json_agg(tags.name) FILTER (WHERE tags.name IS NOT NULL), '[]') AS tags
+        FROM experiments
+        LEFT JOIN experiment_tags ON experiments.id = experiment_tags.experiment_id
+        LEFT JOIN tags ON experiment_tags.tag_id = tags.id
+        WHERE experiments.slug = ${slug}
+        GROUP BY experiments.id;
+      `;
     } else {
       result = await sql`
-      SELECT * FROM experiments LIMIT ${pageSize} OFFSET ${offset};
-    `;
+        SELECT
+          experiments.*,
+          COALESCE(json_agg(tags.name) FILTER (WHERE tags.name IS NOT NULL), '[]') AS tags
+        FROM experiments
+        LEFT JOIN experiment_tags ON experiments.id = experiment_tags.experiment_id
+        LEFT JOIN tags ON experiment_tags.tag_id = tags.id
+        GROUP BY experiments.id
+        LIMIT ${pageSize} OFFSET ${offset};
+      `;
     }
 
     return NextResponse.json({ experiments: result.rows }, { status: 200 });
