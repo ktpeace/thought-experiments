@@ -27,10 +27,16 @@ const Experiment = () => {
       try {
         if (!slug) {
           setError("Experiment missing from URL.");
+          return;
         }
         // Fetch experiment
         const response = await fetch(`/api/experiments?slug=${slug}`);
         const data = await response.json();
+        if (!data || !data.experiments || data.experiments.length === 0) {
+          console.log("data no");
+          setError("No data found for this experiment URL.");
+          return;
+        }
         setExperiment(data.experiments[0]);
         // If user has voted on this before, get their choice & vote tallies
         const pastChoice = slug && localStorage.getItem(slug);
