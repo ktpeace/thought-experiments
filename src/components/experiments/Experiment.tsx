@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { ExperimentData, Votes } from "@/types";
-import { Spinner } from "./icons/svgIcons";
+import { Spinner } from "../icons/svgIcons";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -33,7 +33,6 @@ const Experiment = () => {
         const response = await fetch(`/api/experiments?slug=${slug}`);
         const data = await response.json();
         if (!data || !data.experiments || data.experiments.length === 0) {
-          console.log("data no");
           setError("No data found for this experiment URL.");
           return;
         }
