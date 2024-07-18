@@ -61,9 +61,9 @@ const Experiments = () => {
           return (
             <div
               key={experiment.id}
-              className="mb-4 flex-grow flex-shrink-0 basis-44 flex flex-col items-center"
+              className="mb-2 md:mb-4 flex-grow flex-shrink-0 basis-32 md:w-44 flex flex-col items-center"
             >
-              <div className="w-44 flex flex-col gap-2">
+              <div className="w-32 md:w-44 flex flex-col gap-1 md:gap-2">
                 <div className="relative group">
                   <Link
                     href={`/experiments/${experiment.slug}`}
@@ -75,7 +75,7 @@ const Experiments = () => {
                       alt={`${experiment.title} in delicate anime style`}
                       width="1024"
                       height="1024"
-                      className="w-44 h-44 rounded object-contain group-hover:opacity-50"
+                      className="w-32 h-32 md:w-44 md:h-44 rounded object-contain group-hover:opacity-50"
                     />
                     {pastVote && (
                       <div className="absolute inset-0 flex justify-between items-end mx-1 mb-1 ">
