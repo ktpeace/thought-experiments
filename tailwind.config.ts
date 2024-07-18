@@ -33,7 +33,7 @@ const config: Config = {
         "dusky-600": "#1e2529", // nearly black
         "dusky-700": "#191d22", // background
         "dusky-800": "#0d1012",
-        "brick-500": "#d85347",
+        "brick-500": "#d85347", // dusty red
         "brick-600": "#b8453a",
         "brick-700": "#a73e31",
         "brick-800": "#853227",

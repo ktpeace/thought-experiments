@@ -80,9 +80,8 @@ const Experiments = () => {
                     {pastVote && (
                       <div className="absolute inset-0 flex justify-between items-end mx-1 mb-1 ">
                         <span
-                          className={`px-[5px] py-[2px] text-sm bg-brick-800 bg-opacity-70 rounded text-white ${
-                            pastVote === "no" &&
-                            "border border-2 border-brick-700 px-[3px] py-0"
+                          className={`px-1 text-sm bg-[#411914] bg-opacity-70 rounded text-white border border-2 border-dusky-600/[.1] ${
+                            pastVote === "no" && "border-brick-700/[.4]"
                           }`}
                           title={`No votes: ${experiment.no_votes} ${
                             pastVote === "no" ? "(incl. you)" : ""
@@ -91,9 +90,8 @@ const Experiments = () => {
                           {experiment.no_votes}
                         </span>
                         <span
-                          className={`px-[5px] py-[2px] text-sm bg-moss-800 bg-opacity-70 rounded text-white  ${
-                            pastVote === "yes" &&
-                            "border border-2 border-moss-700 px-[3px] py-0"
+                          className={`px-1 text-sm bg-[#003e28] bg-opacity-70 rounded text-white border border-2 border-dusky-600/[.1] ${
+                            pastVote === "yes" && "border-moss-700/[.4]"
                           }`}
                           title={`Yes votes: ${experiment.yes_votes} ${
                             pastVote === "yes" ? "(incl. you)" : ""
