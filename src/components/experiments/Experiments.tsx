@@ -2,8 +2,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Montserrat } from "next/font/google";
 import { ExperimentData } from "@/types";
 import { Spinner } from "../icons/svgIcons";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 const Experiments = () => {
   const [error, setError] = useState("");
@@ -33,6 +36,12 @@ const Experiments = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumber]);
 
+  // Convert votes to a percent
+  function getPercent(num: number, totalVotes: number) {
+    if (num === 0) return num;
+    return Math.round((num / totalVotes) * 100);
+  }
+
   // Return loading spinner if experiment fetch incomplete
   if (loading) {
     return (
@@ -58,6 +67,8 @@ const Experiments = () => {
       <section className="w-full mb-8 flex flex-wrap justify-start gap-4">
         {experiments.map((experiment) => {
           const pastVote = localStorage.getItem(experiment.slug);
+          const totalVotes = experiment.no_votes + experiment.yes_votes;
+
           return (
             <div
               key={experiment.id}
@@ -87,7 +98,12 @@ const Experiments = () => {
                             pastVote === "no" ? "(incl. you)" : ""
                           }`}
                         >
-                          {experiment.no_votes}
+                          {getPercent(experiment.no_votes, totalVotes)}
+                          <span
+                            className={`${montserrat.className} text-xs ml-[1px]`}
+                          >
+                            %
+                          </span>
                         </span>
                         <span
                           className={`px-1 text-sm bg-[#003e28] bg-opacity-80 rounded text-neutral-200 border border-2 border-dusky-600/[.1] ${
@@ -97,7 +113,12 @@ const Experiments = () => {
                             pastVote === "yes" ? "(incl. you)" : ""
                           }`}
                         >
-                          {experiment.yes_votes}
+                          {getPercent(experiment.yes_votes, totalVotes)}
+                          <span
+                            className={`${montserrat.className} text-xs ml-[1px]`}
+                          >
+                            %
+                          </span>
                         </span>
                       </div>
                     )}
