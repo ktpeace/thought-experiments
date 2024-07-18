@@ -51,3 +51,28 @@ origin_link = '',
 image_url = '',
 slug = ''
 WHERE id = '';
+
+# Add a column
+
+ALTER TABLE experiments
+ADD COLUMN new_column VARCHAR(255);
+
+<!--Or whatever data type you need-->
+
+# Add tags
+
+<!-- To ensure atomicity, wrap the operations in a transaction: -->
+
+BEGIN;
+
+-- Insert tags (skip duplicates)
+INSERT INTO tags (name)
+VALUES ('blue'), ('green'), ('red')
+ON CONFLICT (name) DO NOTHING;
+
+-- Insert into junction table, avoid duplicates
+INSERT INTO experiment_tags (experiment_id, tag_id)
+SELECT 'some-experiment-uuid', id FROM tags WHERE name IN ('blue', 'green', 'red')
+ON CONFLICT DO NOTHING;
+
+COMMIT;
