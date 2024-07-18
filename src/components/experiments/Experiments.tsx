@@ -62,7 +62,9 @@ const Experiments = () => {
     <div className="main-container my-12 gap-4">
       <div className="flex flex-col md:flex-row justify-between">
         <h2 className="mb-4 text-base">All Thought Experiments (more soon!)</h2>
-        <p className="text-base">search & filter by tags soon</p>
+        <p className="text-base invisible md:visible">
+          search & filter by tags soon
+        </p>
       </div>
       <section className="w-full mb-8 flex flex-wrap justify-start gap-4">
         {experiments.map((experiment) => {
@@ -128,10 +130,7 @@ const Experiments = () => {
                   href={`/experiments/${experiment.slug}`}
                   className="block"
                 >
-                  <h4
-                    title={experiment.title}
-                    className="text-sm truncate text-center"
-                  >
+                  <h4 title={experiment.title} className="text-sm truncate">
                     {experiment.title}
                   </h4>
                 </Link>
