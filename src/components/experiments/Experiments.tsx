@@ -80,7 +80,7 @@ const Experiments = () => {
                     {pastVote && (
                       <div className="absolute inset-0 flex justify-between items-end mx-1 mb-1 ">
                         <span
-                          className={`px-1 text-sm bg-[#411914] bg-opacity-70 rounded text-white border border-2 border-dusky-600/[.1] ${
+                          className={`px-1 text-sm bg-[#411914] bg-opacity-80 rounded text-neutral-200 border border-2 border-dusky-600/[.1] ${
                             pastVote === "no" && "border-brick-700/[.4]"
                           }`}
                           title={`No votes: ${experiment.no_votes} ${
@@ -90,7 +90,7 @@ const Experiments = () => {
                           {experiment.no_votes}
                         </span>
                         <span
-                          className={`px-1 text-sm bg-[#003e28] bg-opacity-70 rounded text-white border border-2 border-dusky-600/[.1] ${
+                          className={`px-1 text-sm bg-[#003e28] bg-opacity-80 rounded text-neutral-200 border border-2 border-dusky-600/[.1] ${
                             pastVote === "yes" && "border-moss-700/[.4]"
                           }`}
                           title={`Yes votes: ${experiment.yes_votes} ${
