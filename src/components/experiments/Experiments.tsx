@@ -66,7 +66,7 @@ const Experiments = () => {
           search & filter by tags soon
         </p>
       </div>
-      <section className="mx-0 md:mx-24 xl:mx-0 mb-8 grid grid-cols-[repeat(auto-fit,_minmax(12rem,_1fr))] gap-4">
+      <section className="mx-0 md:mx-24 xl:mx-0 mb-8 grid sm:grid-cols-2 grid-cols-[repeat(auto-fit,_minmax(8rem,_1fr))] md:grid-cols-[repeat(auto-fit,_minmax(12rem,_1fr))] gap-4">
         {experiments.map((experiment) => {
           const pastVote = localStorage.getItem(experiment.slug);
           const totalVotes = experiment.no_votes + experiment.yes_votes;
