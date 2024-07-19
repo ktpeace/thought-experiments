@@ -66,7 +66,7 @@ const Experiments = () => {
           search & filter by tags soon
         </p>
       </div>
-      <section className="w-full mb-8 flex flex-wrap justify-start gap-4">
+      <section className="mx-0 md:mx-24 xl:mx-0 mb-8 grid sm:grid-cols-2 grid-cols-[repeat(auto-fit,_minmax(8rem,_1fr))] md:grid-cols-[repeat(auto-fit,_minmax(12rem,_1fr))] gap-4">
         {experiments.map((experiment) => {
           const pastVote = localStorage.getItem(experiment.slug);
           const totalVotes = experiment.no_votes + experiment.yes_votes;
@@ -74,7 +74,7 @@ const Experiments = () => {
           return (
             <div
               key={experiment.id}
-              className="mb-2 md:mb-4 flex-grow flex-shrink-0 basis-32 md:w-44 flex flex-col items-center"
+              className="mb-2 md:mb-4 flex justify-center"
             >
               <div className="w-32 md:w-44 flex flex-col gap-1 md:gap-2">
                 <div className="relative group">
@@ -90,6 +90,8 @@ const Experiments = () => {
                       height="1024"
                       className="w-32 h-32 md:w-44 md:h-44 rounded object-contain group-hover:opacity-50"
                     />
+
+                    {/* mx-0 md:mx-24 xl:mx-0  */}
                     {pastVote && (
                       <div className="absolute inset-0 flex justify-between items-end mx-1 mb-1 ">
                         <span
@@ -138,7 +140,7 @@ const Experiments = () => {
                   {experiment.tags.map((tag, index) => (
                     <div
                       key={index}
-                      className="py-[2px] px-[5px] self-start text-xs rounded-lg text-white bg-pool-700"
+                      className="py-[2px] px-[5px] self-start text-xs rounded text-white dark:text-neutral-200 bg-pool-600 dark:bg-pool-900"
                     >
                       {tag}
                     </div>
