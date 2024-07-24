@@ -279,10 +279,10 @@ description
 0, -- no_votes
 0, -- yes_votes
 'Do words such as "pain" refer to internal experiences that may differ wildly between people, despite the regular impression that we have a mutual understanding of their meaning?', -- question
-'', -- alt
-'', -- origin
+'delicate anime style image of two children holding up boxes, one secretly containing a glass flower and one containing a beetle', -- alt
+'Ludwig Wittgenstein (1889-1951)', -- origin
 'https://web.stanford.edu/~paulsko/Wittgenstein293.html', -- origin_link
-'', -- image_url
+'https://bqgjmrshrp0vhwru.public.blob.vercel-storage.com/beetle-box-rzuTGbAYY0T34Erlh8qlTexiJANU36.webp', -- image_url
 '', -- slug
 'Beetle in a Box', -- title
 'You are given a closed box with something inside it, which you are told is a "beetle." Everyone around you likewise has a box with a "beetle" inside. Nobody is allowed to look into anyone else's box, and everyone's idea of a beetle comes solely from looking into their own box.
