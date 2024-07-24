@@ -1,6 +1,6 @@
 <!-- Utility Monster -->
 
-INSERT INTO experiments (
+<!-- INSERT INTO experiments (
 no_votes,
 yes_votes,
 question,
@@ -22,7 +22,7 @@ description
 'the-utility-monster', -- slug
 'The Utility Monster', -- title
 'A monster has appeared in the countryside. This monster has a unique quality: its potential for enjoyment vastly outweighs that of any other living thing.\n\nJust as a dog''s sense of smell is over 10,000 times stronger than ours, the monster''s joy from eating a cupcake (for example) is more intense than the same joy ten billion cupcake-loving humans combined would experience. The same goes for our suffering: its capacity for suffering is tens of billions times deeper.' -- description
-);
+); -->
 
 <!-- Bat -->
 
