@@ -14,14 +14,14 @@ description
 ) VALUES (
 0, -- no_votes
 0, -- yes_votes
-'Even if it causes many humans and animals to suffer, should all be subordinated to the pleasures of the utility monster?', -- question
+'Even if it causes many humans and animals to suffer, should their suffering or pleasure be subordinated to the experiences of the utility monster?', -- question
 'Kimokawaii black bloblike grinning furry monster surrounded by a mountain of foods and junk', -- alt
 'Robert Nozick (1938-2002)', -- origin
 'https://en.wikipedia.org/wiki/Utility_monster', -- origin_link
-'', -- image_url
-'utility-monster', -- slug
+'https://bqgjmrshrp0vhwru.public.blob.vercel-storage.com/utility-monster-uuaFTGeWvfkTwwDQ7enWzK505ZaxWO.webp', -- image_url
+'the-utility-monster', -- slug
 'The Utility Monster', -- title
-'There arises in the countryside a monster that has a unique quality: its potential for enjoyment outweighs that of any human to the extreme. In the same way that a dog's sense of smell is over 10,000 times stronger than that of a human, its potential for enjoyment is so much greater than any human's, that it experiences more joy from eating a cupcake than 10 billion cupcake-loving humans collectively would. Similarly, the potential depth of human or animal suffering pales against the richness of this utility monster's enjoyment.' -- description
+'A monster has appeared in the countryside. This monster has a unique quality: its potential for enjoyment vastly outweighs that of any other living thing.\n\nJust as a dog''s sense of smell is over 10,000 times stronger than ours, the monster''s joy from eating a cupcake (for example) is more intense than the same joy ten billion cupcake-loving humans combined would experience. The same goes for our suffering: its capacity for suffering is tens of billions times deeper.' -- description
 );
 
 <!-- Bat -->

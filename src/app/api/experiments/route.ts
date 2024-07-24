@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const pageSize = Number(searchParams.get("pageSize")) || 20;
+    const pageSize = Number(searchParams.get("pageSize")) || 50;
     const pageNumber = Number(searchParams.get("pageNumber")) || 1;
     const slug = searchParams.get("slug");
     const offset = (pageNumber - 1) * pageSize;
