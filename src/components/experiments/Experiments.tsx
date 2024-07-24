@@ -13,7 +13,7 @@ const Experiments = () => {
   const [loading, setLoading] = useState(true);
   // Experiments data & pagination
   const [experiments, setExperiments] = useState<ExperimentData[]>([]);
-  const PAGE_SIZE = 20;
+  const PAGE_SIZE = 50;
   const [pageNumber, setPageNumber] = useState(1);
 
   // Fetch & set experiments data
