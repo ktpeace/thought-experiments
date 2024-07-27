@@ -1,11 +1,10 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { LeftArrow, RightArrow } from "./icons/svgIcons";
 import { ExperimentData } from "@/types";
-import { usePathname } from "next/navigation";
 
 const SlidingImages = () => {
   const pathname = usePathname();
@@ -102,39 +101,41 @@ const SlidingImages = () => {
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {experiments.map((experiment) => (
-            <Link
+            <div
               key={experiment.id}
-              href={`/experiments/${experiment.slug}`}
               title={experiment.title}
-              onClick={(e) => {
-                if (slug === experiment.slug) {
-                  // don't do anything if already here
-                  e.preventDefault();
+              onClick={() => {
+                if (slug !== experiment.slug) {
+                  window.history.pushState(
+                    null,
+                    "",
+                    `/experiments/${experiment.slug}`
+                  );
                 }
               }}
-              className={`${slug === experiment.slug && "cursor-auto"}`}
+              className={`w-12 h-12 md:w-16 md:h-16 flex-shrink-0 cursor-pointer ${
+                slug === experiment.slug && "cursor-auto"
+              }`}
             >
-              <div className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0">
-                <div
-                  className={clsx(
-                    `w-full h-full relative overflow-hidden rounded-full`,
-                    {
-                      "betterhover:hover:opacity-50": slug !== experiment.slug,
-                      "border-4 border-pool-500 dark:border-pool-700":
-                        slug === experiment.slug,
-                    }
-                  )}
-                >
-                  <Image
-                    src={experiment.image_url}
-                    alt={`${experiment.title} in delicate anime style`}
-                    className="object-cover"
-                    width="1024"
-                    height="1024"
-                  />
-                </div>
+              <div
+                className={clsx(
+                  `w-full h-full relative overflow-hidden rounded-full`,
+                  {
+                    "betterhover:hover:opacity-50": slug !== experiment.slug,
+                    "border-4 border-pool-500 dark:border-pool-700":
+                      slug === experiment.slug,
+                  }
+                )}
+              >
+                <Image
+                  src={experiment.image_url}
+                  alt={`${experiment.title} in delicate anime style`}
+                  className="object-cover"
+                  width="1024"
+                  height="1024"
+                />
               </div>
-            </Link>
+            </div>
           ))}
         </div>
         {/* Right button */}
