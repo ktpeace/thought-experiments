@@ -116,12 +116,14 @@ const SlidingImages = () => {
             >
               <div className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0">
                 <div
-                  className={`w-full h-full relative overflow-hidden rounded-full ${
-                    slug !== experiment.slug && "betterhover:hover:opacity-50"
-                  } ${
-                    slug === experiment.slug &&
-                    "border-4 border-pool-500 dark:border-pool-700"
-                  }`}
+                  className={clsx(
+                    `w-full h-full relative overflow-hidden rounded-full`,
+                    {
+                      "betterhover:hover:opacity-50": slug !== experiment.slug,
+                      "border-4 border-pool-500 dark:border-pool-700":
+                        slug === experiment.slug,
+                    }
+                  )}
                 >
                   <Image
                     src={experiment.image_url}
@@ -137,9 +139,11 @@ const SlidingImages = () => {
         {/* Right button */}
         <button
           onClick={scrollRight}
-          className={`px-4 dark:text-neutral-400 ${
-            disableRight ? "opacity-30" : "opacity-100"
-          } ${!disableRight && "dark:betterhover:hover:text-white"}`}
+          className={clsx("px-4 dark:text-neutral-400", {
+            "opacity-30": disableRight,
+            "opacity-100": !disableRight,
+            "dark:betterhover:hover:text-white": !disableRight,
+          })}
           disabled={disableRight}
         >
           <RightArrow />
