@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { ExperimentData } from "@/types";
 import { Spinner } from "../icons/svgIcons";
+import clsx from "clsx";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -90,14 +91,14 @@ const Experiments = () => {
                       height="1024"
                       className="w-32 h-32 md:w-44 md:h-44 rounded object-contain group-hover:opacity-50"
                     />
-
                     {/* mx-0 md:mx-24 xl:mx-0  */}
                     {pastVote && (
                       <div className="absolute inset-0 flex justify-between items-end mx-1 mb-1 ">
                         <span
-                          className={`px-1 text-sm bg-[#411914] bg-opacity-80 rounded text-neutral-200 border border-2 border-dusky-600/[.1] ${
-                            pastVote === "no" && "border-brick-700/[.4]"
-                          }`}
+                          className={clsx(
+                            `px-1 text-sm bg-[#411914] bg-opacity-80 rounded text-neutral-200 border border-2 border-dusky-600/[.1]`,
+                            { "border-brick-700/[.4]": pastVote === "no" }
+                          )}
                           title={`No votes: ${experiment.no_votes} ${
                             pastVote === "no" ? "(incl. you)" : ""
                           }`}

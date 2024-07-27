@@ -15,7 +15,15 @@ export async function GET(request: Request) {
 
     const randomSlug = result.rows[0].slug;
 
-    return NextResponse.json({ slug: randomSlug }, { status: 200 });
+    return NextResponse.json(
+      { slug: randomSlug },
+      {
+        status: 200,
+        headers: {
+          "Cache-Control": "no-store",
+        },
+      }
+    );
   } catch (err) {
     console.error("Error fetching random experiment slug:", err);
     const errorMessage = (err as Error).message || "Unknown error";

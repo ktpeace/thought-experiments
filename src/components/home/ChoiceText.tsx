@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useEffect, useRef } from "react";
 
 const ChoiceText = ({
@@ -27,9 +28,10 @@ const ChoiceText = ({
   return (
     <div
       ref={choiceRef}
-      className={`relative w-full ${
-        moreSpace ? "my-8" : "my-0"
-      } py-2 px-4 flex justify-center text-2xl italic rounded bg-pool-500/[.15]`}
+      className={clsx(
+        `relative w-full py-2 px-4 flex justify-center text-2xl italic rounded bg-pool-500/[.15]`,
+        { "my-8": moreSpace, "my-0": !moreSpace }
+      )}
     >
       {choiceText}
     </div>
