@@ -129,7 +129,8 @@ const SlidingImages = () => {
                     src={experiment.image_url}
                     alt={`${experiment.title} in delicate anime style`}
                     className="object-cover"
-                    fill
+                    width="1024"
+                    height="1024"
                   />
                 </div>
               </div>
