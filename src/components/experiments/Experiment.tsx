@@ -1,11 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { ExperimentData, Votes } from "@/types";
 import { Spinner } from "../icons/svgIcons";
+import TagsModal from "./TagsModal";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -20,6 +21,30 @@ const Experiment = () => {
   const [choice, setChoice] = useState("");
   const [votes, setVotes] = useState<Votes>({} as Votes);
   const [hasPastVote, setHasPastVote] = useState(false);
+  const [showTags, setShowTags] = useState(false);
+  const [isOverflow, setIsOverflow] = useState(false);
+  const tagsContainerRef = useRef<HTMLDivElement>(null);
+
+  // If tags overflow, display "more"
+  useEffect(() => {
+    const container = tagsContainerRef.current;
+    if (!container) return;
+
+    // Recalculate on window resize
+    const observer = new ResizeObserver(() => {
+      if (container) {
+        setIsOverflow(container.scrollWidth > container.clientWidth);
+      }
+    });
+
+    observer.observe(container);
+
+    return () => {
+      if (container) {
+        observer.unobserve(container);
+      }
+    };
+  }, [experiment.tags]);
 
   // Fetch & set experiments data
   useEffect(() => {
@@ -71,6 +96,10 @@ const Experiment = () => {
       <div className="h-[65vh] flex justify-center items-center">{error}</div>
     );
   }
+
+  const handleMoreTagsClick = () => {
+    setShowTags(true);
+  };
 
   // Record user vote & get latest vote tallies
   async function handleVote(vote: string) {
@@ -129,9 +158,9 @@ const Experiment = () => {
   }
 
   return (
-    <div className="md:max-w-70p 2xl:max-w-70p dark:text-neutral-200">
+    <div className="w-full md:max-w-70p dark:text-neutral-200">
       <div className="w-full flex flex-col justify-center items-center">
-        <div className="mb-8 w-full flex flex-col justify-center items-center">
+        <div className="w-full mb-4 flex flex-col justify-center items-center">
           <h2 className="uppercase font-medium text-2xl text-center">
             {experiment.title}
           </h2>
@@ -146,7 +175,35 @@ const Experiment = () => {
             </Link>
             : {experiment.origin}
           </p>
+          <div className="w-full mt-2 flex gap-1">
+            <div
+              className={`w-full flex flex-nowrap gap-1 overflow-hidden ${
+                isOverflow ? "flex-grow" : "justify-center"
+              }`}
+              ref={tagsContainerRef}
+            >
+              {experiment.tags.map((tag, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="py-[2px] px-[5px] text-xs whitespace-nowrap rounded text-white dark:text-neutral-200 bg-pool-600 dark:bg-pool-900"
+                  >
+                    {tag}
+                  </div>
+                );
+              })}
+            </div>
+            {isOverflow && (
+              <div
+                className="flex-shrink-0 py-[2px] px-[5px] text-xs rounded text-pool-600 dark:text-pool-500 hover:text-pool-300 whitespace-nowrap cursor-pointer font-bold"
+                onClick={handleMoreTagsClick}
+              >
+                ...more
+              </div>
+            )}
+          </div>
         </div>
+
         <div className="w-full sm:w-6/12 mb-8 flex justify-center">
           <Image
             src={experiment.image_url}
@@ -225,6 +282,7 @@ const Experiment = () => {
           )}
         </div>
       </div>
+      {showTags && <TagsModal setIsOpen={setShowTags} tags={experiment.tags} />}
     </div>
   );
 };
