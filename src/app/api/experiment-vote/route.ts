@@ -64,7 +64,15 @@ export async function GET(request: Request) {
       WHERE slug = ${slug};
     `;
 
-    return NextResponse.json({ votes: result.rows[0] }, { status: 200 });
+    return NextResponse.json(
+      { votes: result.rows[0] },
+      {
+        status: 200,
+        headers: {
+          "Cache-Control": "no-store",
+        },
+      }
+    );
   } catch (err) {
     console.error(err);
     const errorMessage = (err as Error).message || "Unknown error";

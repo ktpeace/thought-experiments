@@ -35,7 +35,15 @@ export async function GET(request: Request) {
       `;
     }
 
-    return NextResponse.json({ experiments: result.rows }, { status: 200 });
+    return NextResponse.json(
+      { experiments: result.rows },
+      {
+        status: 200,
+        headers: {
+          "Cache-Control": "no-store",
+        },
+      }
+    );
   } catch (err) {
     console.error(err);
     const errorMessage = (err as Error).message || "Unknown error";
