@@ -8,18 +8,27 @@ const About = () => {
       <h2 className="mb-4 self-center text-3xl">About</h2>
       <section className="mb-8 flex flex-col gap-4">
         <p>
-          Thought Experiment Explorer is a solo passion project made around June
-          2024. My motivations are my personal interests, programming practice,
-          and belief that, especially today, we need to live more examined
-          lives. Or, as the wise might put it, &quot;know thyself.&quot;
+          <span className="font-semibold">ORIGIN:</span> Thought Experiment
+          Explorer is a solo passion project begun in late May 2024. My
+          motivations are my personal interests, programming practice, and
+          belief that, especially today, we need to live more examined lives.
+          Or, as the wise might put it, &quot;know thyself.&quot;
         </p>
         <p>
-          Future plans include adding more thought experiments, making a
-          separate page to search/filter experiments, adding logins to allow for
-          more reliable voting and profile generation, etc. Contact me if there
-          is a feature you&apos;d like to see.
+          <span className="font-semibold">FUTURE PLANS:</span> I&apos;ll soon
+          add more thought experiments, small UX improvements, sorting, etc.
+          Content-wise, I want to add some more thoughts post-voting for each
+          experiment, but that&apos;s may be a bit. Contact me if there is a
+          feature you&apos;d like to see.
         </p>
-        <p>I generated the images using Midjourney.</p>
+        <p>
+          <span className="font-semibold">ART:</span> I generated the images
+          using Midjourney. My feelings are not unmixed, but I am an indie
+          developer (that&apos;s Glam for &quot;broke&quot;), not a
+          mega-corporation who could have paid a real artist for dozens of
+          original images. And it is pretty cool. That said, if I somehow make
+          money off this site, I&apos;ll buy somethin&apos; from a local artist.
+        </p>
       </section>
       {/* Contact / Donate */}
       <section className="flex flex-col lg:flex-row justify-between gap-8">
