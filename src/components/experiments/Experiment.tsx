@@ -46,13 +46,14 @@ const Experiment = () => {
     };
   }, [experiment.tags]);
 
-  // Fetch & set experiments data
+  // Respond to experiment slug change
   useEffect(() => {
-    // Reset votes on experiment slug change
+    // Reset votes
     setChoice("");
     setVotes({} as Votes);
     setHasPastVote(false);
 
+    // Fetch & set experiment
     async function callFetchExperiments() {
       try {
         if (!slug) {
@@ -83,7 +84,11 @@ const Experiment = () => {
         setLoading(false);
       }
     }
+
     callFetchExperiments();
+
+    // Scroll to top of the page
+    window.scrollTo(0, 0);
   }, [slug]);
 
   // Return loading spinner if experiment fetch incomplete
