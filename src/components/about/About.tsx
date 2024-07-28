@@ -18,8 +18,8 @@ const About = () => {
           <span className="font-semibold">FUTURE PLANS:</span> I&apos;ll soon
           add more thought experiments, small UX improvements, sorting, etc.
           Content-wise, I want to add some more thoughts post-voting for each
-          experiment, but that&apos;s may be a bit. Contact me if there is a
-          feature you&apos;d like to see.
+          experiment, eventually. Contact me if there is a feature you&apos;d
+          like to see.
         </p>
         <p>
           <span className="font-semibold">ART:</span> I generated the images
