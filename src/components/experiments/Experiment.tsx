@@ -60,7 +60,6 @@ const Experiment = () => {
           setError("Experiment missing from URL.");
           return;
         }
-        // Fetch experiment
         const response = await fetch(`/api/experiments?slug=${slug}`);
         const data = await response.json();
         if (!data || !data.experiments || data.experiments.length === 0) {

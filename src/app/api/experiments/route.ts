@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
-
+export const fetchCache = "force-no-store";
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -39,9 +39,13 @@ export async function GET(request: Request) {
       { experiments: result.rows },
       {
         status: 200,
-        headers: {
-          "Cache-Control": "no-store",
-        },
+        // headers: {
+        //   "Cache-Control":
+        //     "no-store, no-cache, must-revalidate, proxy-revalidate",
+        //   Pragma: "no-cache",
+        //   Expires: "0",
+        //   "Surrogate-Control": "no-store",
+        // },
       }
     );
   } catch (err) {
