@@ -48,6 +48,11 @@ const Experiment = () => {
 
   // Fetch & set experiments data
   useEffect(() => {
+    // Reset votes on experiment slug change
+    setChoice("");
+    setVotes({} as Votes);
+    setHasPastVote(false);
+
     async function callFetchExperiments() {
       try {
         if (!slug) {
