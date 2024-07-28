@@ -70,15 +70,6 @@ const Experiments = () => {
     return Math.round((num / totalVotes) * 100);
   }
 
-  // Return loading spinner if experiment fetch incomplete
-  // if (loading) {
-  //   return (
-  //     <div className="h-[65vh] flex justify-center items-center">
-  //       <Spinner />
-  //     </div>
-  //   );
-  // }
-
   // Return error message
   if (error) {
     return (
