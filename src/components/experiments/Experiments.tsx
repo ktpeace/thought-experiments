@@ -6,6 +6,7 @@ import { Montserrat } from "next/font/google";
 import { ExperimentData } from "@/types";
 import { Spinner } from "../icons/svgIcons";
 import clsx from "clsx";
+import Search from "./Search";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -17,23 +18,49 @@ const Experiments = () => {
   const PAGE_SIZE = 30;
   const [pageNumber, setPageNumber] = useState(1);
 
+  async function fetchExperiments(
+    query?: string,
+    tags?: string[],
+    shouldReset: boolean = false
+  ): Promise<void> {
+    try {
+      // Reset page & experiments if user is searching
+      if (shouldReset) {
+        setLoading(true);
+        setExperiments([]);
+        setPageNumber(1);
+      }
+      // Construct query params
+      const queryParams = new URLSearchParams({
+        pageSize: `${PAGE_SIZE}`,
+        pageNumber: `${pageNumber}`,
+        ...(query && { search: query }),
+      });
+
+      // Add tags as params
+      tags && tags.forEach((tag) => queryParams.append("tags", tag));
+
+      // Fetch & set experiments
+      const response = await fetch(
+        `/api/experiments?${queryParams.toString()}`
+      );
+      const data = await response.json();
+      setExperiments((prev) => [...prev, ...data.experiments]);
+    } catch (err) {
+      // Handle errors
+      console.error(err);
+      setError(
+        "An error occurred fetching the experiments. Please refresh, and feel free to contact me via About page if errors persist."
+      );
+    } finally {
+      // Set loading to false
+      setLoading(false);
+    }
+  }
+
   // Fetch & set experiments data
   useEffect(() => {
-    async function callFetchExperiments() {
-      try {
-        const response = await fetch(
-          `/api/experiments?pageSize=${PAGE_SIZE}&pageNumber=${pageNumber}`
-        );
-        const data = await response.json();
-        setExperiments((prev) => [...prev, ...data.experiments]);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    experiments?.length === 0 && callFetchExperiments();
+    experiments?.length === 0 && fetchExperiments();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumber]);
 
@@ -41,15 +68,6 @@ const Experiments = () => {
   function getPercent(num: number, totalVotes: number) {
     if (num === 0) return num;
     return Math.round((num / totalVotes) * 100);
-  }
-
-  // Return loading spinner if experiment fetch incomplete
-  if (loading) {
-    return (
-      <div className="h-[65vh] flex justify-center items-center">
-        <Spinner />
-      </div>
-    );
   }
 
   // Return error message
@@ -61,13 +79,12 @@ const Experiments = () => {
 
   return (
     <div className="main-container my-12 gap-4">
-      <div className="flex flex-col md:flex-row justify-between">
-        <h2 className="mb-4 text-base">All Thought Experiments (more soon!)</h2>
-        <p className="text-base invisible md:visible">
-          search & filter by tags soon
-        </p>
+      <div className="mb-4 flex flex-col sm:flex-row gap-4 sm:gap-none items-center justify-between">
+        <h2 className="text-base">Thought Experiments</h2>
+        <Search fetchExperiments={fetchExperiments} />
       </div>
-      <section className="mx-0 md:mx-24 xl:mx-0 mb-8 grid sm:grid-cols-2 grid-cols-[repeat(auto-fit,_minmax(8rem,_1fr))] md:grid-cols-[repeat(auto-fit,_minmax(12rem,_1fr))] gap-4">
+      <section className="mb-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {/* xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 */}
         {experiments.map((experiment) => {
           const pastVote = localStorage.getItem(experiment.slug);
           const totalVotes = experiment.no_votes + experiment.yes_votes;
@@ -152,6 +169,15 @@ const Experiments = () => {
           );
         })}
       </section>
+      {loading && (
+        <div
+          className={`w-full ${
+            experiments.length === 0 && "h-[60vh]"
+          } mb-4 flex justify-center items-center`}
+        >
+          <Spinner />
+        </div>
+      )}
       <div className="w-full flex justify-center text-sm">
         I&apos;ll get me some pagination when I durn well need it
       </div>
