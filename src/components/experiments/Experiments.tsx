@@ -80,7 +80,9 @@ const Experiments = () => {
   return (
     <div className="main-container my-12 gap-4">
       <div className="mb-4 flex flex-col sm:flex-row gap-4 sm:gap-none items-center justify-between">
-        <h2 className="text-base">Thought Experiments</h2>
+        <h2 className="mb-2 sm:mb-0 text-3xl sm:text-base">
+          Thought Experiments
+        </h2>
         <Search fetchExperiments={fetchExperiments} />
       </div>
       <section className="mb-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
