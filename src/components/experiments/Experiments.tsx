@@ -2,67 +2,91 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+// @ts-ignore
+import { useSearchParams, unstable_rethrow } from "next/navigation";
 import { Montserrat } from "next/font/google";
+import clsx from "clsx";
 import { ExperimentData } from "@/types";
 import { Spinner } from "../icons/svgIcons";
-import clsx from "clsx";
 import Search from "./Search";
+import Tags from "./Tags";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 const Experiments = () => {
-  const [error, setError] = useState("");
+  // Routing & params
+  const searchParams = useSearchParams();
+  const searchString = searchParams.toString();
+  const query = searchParams.get("search") || undefined;
+  let tags: string[] | undefined = searchParams.getAll("tags");
+  // Generic state handlers
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   // Experiments data & pagination
   const [experiments, setExperiments] = useState<ExperimentData[]>([]);
   const PAGE_SIZE = 30;
   const [pageNumber, setPageNumber] = useState(1);
 
-  async function fetchExperiments(
-    query?: string,
-    tags?: string[],
-    shouldReset: boolean = false
-  ): Promise<void> {
-    try {
-      // Reset page & experiments if user is searching
-      if (shouldReset) {
-        setLoading(true);
-        setExperiments([]);
-        setPageNumber(1);
-      }
-      // Construct query params
-      const queryParams = new URLSearchParams({
-        pageSize: `${PAGE_SIZE}`,
-        pageNumber: `${pageNumber}`,
-        ...(query && { search: query }),
-      });
+  // Function to construct params string
+  function buildParams(userQuery?: string, userTags?: string[]) {
+    // Start with page size and number
+    const queryParams = new URLSearchParams({
+      pageSize: `${PAGE_SIZE}`,
+      pageNumber: `${pageNumber}`,
+    });
 
-      // Add tags as params
-      tags && tags.forEach((tag) => queryParams.append("tags", tag));
-
-      // Fetch & set experiments
-      const response = await fetch(
-        `/api/experiments?${queryParams.toString()}`
-      );
-      const data = await response.json();
-      setExperiments((prev) => [...prev, ...data.experiments]);
-    } catch (err) {
-      // Handle errors
-      console.error(err);
-      setError(
-        "An error occurred fetching the experiments. Please refresh, and feel free to contact me via About page if errors persist."
-      );
-    } finally {
-      // Set loading to false
-      setLoading(false);
+    // Set search query, prioritizing user entry over URL params
+    if (userQuery === "") {
+      queryParams.delete("search");
+    } else if (userQuery != null) {
+      queryParams.set("search", userQuery);
+    } else if (query) {
+      queryParams.set("search", query);
     }
+
+    // Use userTags if provided, otherwise use URL tags
+    const tagsToUse = userTags || tags;
+    if (tagsToUse && tagsToUse.length > 0) {
+      tagsToUse.forEach((tag) => queryParams.append("tags", tag));
+    }
+
+    // Return query string
+    return queryParams.toString();
   }
 
-  // Fetch & set experiments data
+  // Fetch & set experiments when query params change
+  // This can happen via direct call of setQueryParams, or by navigation
   useEffect(() => {
-    experiments?.length === 0 && fetchExperiments();
+    async function fetchExperiments() {
+      try {
+        // Reset experiments
+        setLoading(true);
+        setExperiments([]);
+        // setPageNumber(1);
+        // Fetch using params
+        const queryParams = buildParams();
+        const response = await fetch(`/api/experiments?${queryParams}`);
+        // Set experiments with response data
+        const data = await response.json();
+        setExperiments(data.experiments);
+        // setExperiments((prev) => [...prev, ...data.experiments]);
+      } catch (err) {
+        unstable_rethrow(error);
+        // Handle errors
+        console.error(err);
+        setLoading(false);
+        setError(
+          "An error occurred fetching the experiments. Please refresh, and feel free to contact me via About page if errors persist."
+        );
+      } finally {
+        // Stop loading spinner
+        setLoading(false);
+      }
+    }
+
+    fetchExperiments();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageNumber]);
+  }, [searchString]);
 
   // Convert votes to a percent
   function getPercent(num: number, totalVotes: number) {
@@ -70,23 +94,18 @@ const Experiments = () => {
     return Math.round((num / totalVotes) * 100);
   }
 
-  // Return error message
-  if (error) {
-    return (
-      <div className="h-[65vh] flex justify-center items-center">{error}</div>
-    );
-  }
-
   return (
     <div className="main-container my-12 gap-4">
+      {/* Header & search */}
       <div className="mb-4 flex flex-col sm:flex-row gap-4 sm:gap-none items-center justify-between">
         <h2 className="mb-2 sm:mb-0 text-3xl sm:text-base">
           Thought Experiments
         </h2>
-        <Search fetchExperiments={fetchExperiments} />
+        <Search searchParams={searchParams} buildParams={buildParams} />
       </div>
+
+      {/* Experiments */}
       <section className="mb-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        {/* xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 */}
         {experiments.map((experiment) => {
           const pastVote = localStorage.getItem(experiment.slug);
           const totalVotes = experiment.no_votes + experiment.yes_votes;
@@ -110,7 +129,6 @@ const Experiments = () => {
                       height="1024"
                       className="w-32 h-32 md:w-44 md:h-44 rounded object-contain group-hover:opacity-50"
                     />
-                    {/* mx-0 md:mx-24 xl:mx-0  */}
                     {pastVote && (
                       <div className="absolute inset-0 flex justify-between items-end mx-1 mb-1 ">
                         <span
@@ -156,30 +174,26 @@ const Experiments = () => {
                     {experiment.title}
                   </h4>
                 </Link>
-                <div className="flex flex-wrap gap-1">
-                  {experiment.tags.map((tag, index) => (
-                    <div
-                      key={index}
-                      className="py-[2px] px-[5px] self-start text-xs rounded text-white dark:text-neutral-200 bg-pool-600 dark:bg-pool-900"
-                    >
-                      {tag}
-                    </div>
-                  ))}
-                </div>
+                <Tags tags={experiment.tags} />
               </div>
             </div>
           );
         })}
       </section>
-      {loading && (
+
+      {/* Loading spinner or error message */}
+      {(loading || error) && (
         <div
           className={`w-full ${
             experiments.length === 0 && "h-[60vh]"
           } mb-4 flex justify-center items-center`}
         >
-          <Spinner />
+          {loading && <Spinner />}
+          {error}
         </div>
       )}
+
+      {/* Pagination claim */}
       <div className="w-full flex justify-center text-sm">
         I&apos;ll get me some pagination when I durn well need it
       </div>
