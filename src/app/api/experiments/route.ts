@@ -1,6 +1,7 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 export const fetchCache = "force-no-store";
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -15,7 +16,7 @@ export async function GET(request: Request) {
     let queryString = `
       SELECT
         experiments.*,
-        COALESCE(json_agg(tags.name) FILTER (WHERE tags.name IS NOT NULL), '[]') AS tags
+        COALESCE(json_agg(DISTINCT tags.name) FILTER (WHERE tags.name IS NOT NULL), '[]') AS tags
       FROM experiments
       LEFT JOIN experiment_tags ON experiments.id = experiment_tags.experiment_id
       LEFT JOIN tags ON experiment_tags.tag_id = tags.id
@@ -47,7 +48,14 @@ export async function GET(request: Request) {
       const tagPlaceholders = tags
         .map((_, index) => `$${queryParams.length + index + 1}`)
         .join(", ");
-      whereClauses.push(`tags.name IN (${tagPlaceholders})`);
+      whereClauses.push(`experiments.id IN (
+        SELECT experiment_tags.experiment_id
+        FROM experiment_tags
+        JOIN tags ON experiment_tags.tag_id = tags.id
+        WHERE tags.name IN (${tagPlaceholders})
+        GROUP BY experiment_tags.experiment_id
+        HAVING COUNT(DISTINCT tags.name) = ${tags.length}
+      )`);
       queryParams.push(...tags);
     }
 
