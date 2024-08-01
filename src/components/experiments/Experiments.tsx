@@ -202,19 +202,3 @@ const Experiments = () => {
   );
 };
 export default Experiments;
-
-// // Call fetchExperiments on initial render & when params change
-// useEffect(() => {
-//   const pageNumber = searchParams.get("pageNumber");
-//   if (tags) tags = tags.length > 0 ? tags : undefined;
-
-//   if (pageNumber) {
-//     setPageNumber(parseInt(pageNumber, 10));
-//   }
-
-//   if (query || tags) {
-//     fetchExperiments(query, tags);
-//   } else {
-//     fetchExperiments();
-//   }
-// }, [query]);
