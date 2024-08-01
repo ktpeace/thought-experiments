@@ -56,7 +56,6 @@ const Experiments = () => {
   // Fetch & set experiments when query params change
   // This can happen via direct call of setQueryParams, or by navigation
   useEffect(() => {
-    console.log("params changed");
     async function fetchExperiments() {
       try {
         // Reset experiments
@@ -65,11 +64,9 @@ const Experiments = () => {
         // setPageNumber(1);
         // Fetch using params
         const queryParams = buildParams();
-        console.log("params query", queryParams);
         const response = await fetch(`/api/experiments?${queryParams}`);
         // Set experiments with response data
         const data = await response.json();
-        console.log("query data", data);
         setExperiments(data.experiments);
         // setExperiments((prev) => [...prev, ...data.experiments]);
       } catch (err) {
