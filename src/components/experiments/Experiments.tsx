@@ -7,6 +7,7 @@ import { ExperimentData } from "@/types";
 import { Spinner } from "../icons/svgIcons";
 import clsx from "clsx";
 import Search from "./Search";
+import Tags from "./Tags";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -156,7 +157,8 @@ const Experiments = () => {
                     {experiment.title}
                   </h4>
                 </Link>
-                <div className="flex flex-wrap gap-1">
+                <Tags tags={experiment.tags} />
+                {/* <div className="flex flex-wrap gap-1">
                   {experiment.tags.map((tag, index) => (
                     <div
                       key={index}
@@ -165,7 +167,15 @@ const Experiments = () => {
                       {tag}
                     </div>
                   ))}
-                </div>
+                  {experiment.tags.map((tag, index) => (
+                    <div
+                      key={index}
+                      className="py-[2px] px-[5px] self-start text-xs rounded text-white dark:text-neutral-200 bg-pool-600 dark:bg-pool-900"
+                    >
+                      {tag}
+                    </div>
+                  ))}
+                </div> */}
               </div>
             </div>
           );

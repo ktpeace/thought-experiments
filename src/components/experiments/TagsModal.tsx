@@ -16,7 +16,7 @@ const TagsModal = ({
     <div
       id="info-popup"
       tabIndex={-1}
-      className="fixed inset-0 flex items-center justify-center overflow-y-auto overflow-x-hidden z-50"
+      className="fixed inset-0 mx-4 flex items-center justify-center overflow-y-auto overflow-x-hidden z-50"
     >
       {/* Overlay */}
       <div
@@ -31,10 +31,7 @@ const TagsModal = ({
         />
         <div className="mb-4 p-4 text-sm font-light text-gray-700 dark:text-gray-400">
           <h2 className="mb-3 text-2xl text-gray-900 dark:text-white">Tags</h2>
-          <p>
-            Click on a tag to leave this page and view all experiments with that
-            tag.
-          </p>
+          <p>Click on a tag to view all experiments filtered by that tag.</p>
           <div className="mt-4 flex flex-wrap gap-1">
             {tags.map((tag, index) => (
               <div
