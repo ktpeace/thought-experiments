@@ -4,8 +4,9 @@ import { NextResponse } from "next/server";
 export const fetchCache = "force-no-store";
 
 export async function GET(request: Request) {
+  // request.url must be outside try/catch for nextjs dynamic route switching
+  const url = new URL(request.url);
   try {
-    const url = new URL(request.url);
     const searchParams = url.searchParams;
     const slug = searchParams.get("slug");
     const search = searchParams.get("search") || "";

@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+// @ts-ignore
+import { useSearchParams, unstable_rethrow } from "next/navigation";
 import { Montserrat } from "next/font/google";
 import clsx from "clsx";
 import { ExperimentData } from "@/types";
@@ -55,33 +56,34 @@ const Experiments = () => {
 
   // Fetch & set experiments when query params change
   // This can happen via direct call of setQueryParams, or by navigation
-  async function fetchExperiments() {
-    try {
-      // Reset experiments
-      setLoading(true);
-      setExperiments([]);
-      // setPageNumber(1);
-      // Fetch using params
-      const queryParams = buildParams();
-      const response = await fetch(`/api/experiments?${queryParams}`);
-      // Set experiments with response data
-      const data = await response.json();
-      setExperiments(data.experiments);
-      // setExperiments((prev) => [...prev, ...data.experiments]);
-    } catch (err) {
-      // Handle errors
-      console.error(err);
-      setLoading(false);
-      setError(
-        "An error occurred fetching the experiments. Please refresh, and feel free to contact me via About page if errors persist."
-      );
-    } finally {
-      // Stop loading spinner
-      setLoading(false);
-    }
-  }
-
   useEffect(() => {
+    async function fetchExperiments() {
+      try {
+        // Reset experiments
+        setLoading(true);
+        setExperiments([]);
+        // setPageNumber(1);
+        // Fetch using params
+        const queryParams = buildParams();
+        const response = await fetch(`/api/experiments?${queryParams}`);
+        // Set experiments with response data
+        const data = await response.json();
+        setExperiments(data.experiments);
+        // setExperiments((prev) => [...prev, ...data.experiments]);
+      } catch (err) {
+        unstable_rethrow(error);
+        // Handle errors
+        console.error(err);
+        setLoading(false);
+        setError(
+          "An error occurred fetching the experiments. Please refresh, and feel free to contact me via About page if errors persist."
+        );
+      } finally {
+        // Stop loading spinner
+        setLoading(false);
+      }
+    }
+
     fetchExperiments();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchString]);
